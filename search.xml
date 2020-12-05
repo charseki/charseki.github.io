@@ -17,11 +17,20 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>分类1</category>
+      </categories>
+      <tags>
+        <tag>helloworld</tag>
+      </tags>
   </entry>
   <entry>
     <title>test_encrypt</title>
     <url>/2020/11/29/test-encrypt/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码错误,请重新输入！" data-whm="文章不能被校验,不过您还是能看看解密后的内容"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好,请在下方输入密码！" /><label>您好,请在下方输入密码！</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="19c06c3d70add7aa0c74b425e5af2935f9176dfb0934fb3d9d1c5ead7337e7cb">f0e260aa95ce3ceffcb2b4f9bd98f3f35189ff6848982a804d96cce2bf6aba109b6e9673bb192ee04d918b10de44b772208572ab4bd84e5baf09905fa8d8eec1229b9bd21eb165cc2371b188aec6d6e4940da0597c62a830892a92f05db74a9d1537e7db0c82eba8f1ce1e769bd062aa65a5221b524fbed9d65ded3b659c363d9a30130d01be9f5c3891bee6972c5d9614d13320b7212dc18691a8decc461a4381e776f1523ebba2aaf429e5c851a1e3962014f99294da2940c9c42cc0df5e83104a11712d78e4a431d42d0b933dc8159259545e24018dafeb2402d57e39a4797a98795b985224dcaf3599ab90222f2b12c3e70378795a422a7011e03a284695084eee849f4e217724b884e0f318f296d116842ee5189b54590870d388b867481bb30446bab709f725f1cdc287f6b4367a5b2362e859e9a0e57188fbe9110fb42c62c360b173ddcd63de733fc7cf0820c1b857113570710fd7c3492b1daf1207b2c4bc1c0e9c2f9d7482346de38d5ab4c2f4140f9bf8a046e561ef0c931f0818ee2cb9d6789ae2fd17ceebd072d72100a901943d7ceaa5422df02f3362d1124ae52a975395aca8318a23dac8681c2e08</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>分类2</category>
+      </categories>
       <tags>
         <tag>encrypted</tag>
       </tags>
@@ -32,10 +41,22 @@
     <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="1、图床外链测试："><a href="#1、图床外链测试：" class="headerlink" title="1、图床外链测试："></a>1、图床外链测试：</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201205204658.png"></p>
 <h3 id="2、文本测试："><a href="#2、文本测试：" class="headerlink" title="2、文本测试："></a>2、文本测试：</h3><p>造物无言却有情，每于寒尽觉春生。<br>千红万紫安排着，只待新雷第一声。<br>造物无言却有情，每于寒尽觉春生。<br>千红万紫安排着，只待新雷第一声。<br>造物无言却有情，每于寒尽觉春生。<br>千红万紫安排着，只待新雷第一声。<br>造物无言却有情，每于寒尽觉春生。<br>千红万紫安排着，只待新雷第一声。</p>
 <h3 id="3、python代码块测试："><a href="#3、python代码块测试：" class="headerlink" title="3、python代码块测试："></a>3、python代码块测试：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> progressbar</span><br><span class="line"><span class="keyword">import</span> prettytable <span class="keyword">as</span> pt</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>分类3</category>
+      </categories>
+      <tags>
+        <tag>images</tag>
+      </tags>
   </entry>
   <entry>
     <title>test_my_site</title>
     <url>/2020/11/29/test-my-site/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="人生若只如初见"><a href="#人生若只如初见" class="headerlink" title="人生若只如初见"></a>人生若只如初见</h1><h2 id="何事秋风悲画扇"><a href="#何事秋风悲画扇" class="headerlink" title="何事秋风悲画扇"></a>何事秋风悲画扇</h2><h3 id="等闲变却故人心"><a href="#等闲变却故人心" class="headerlink" title="等闲变却故人心"></a>等闲变却故人心</h3><h4 id="却道故人心易变"><a href="#却道故人心易变" class="headerlink" title="却道故人心易变"></a>却道故人心易变</h4>]]></content>
+      <categories>
+        <category>分类4</category>
+      </categories>
+      <tags>
+        <tag>mysite</tag>
+      </tags>
   </entry>
 </search>
