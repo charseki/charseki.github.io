@@ -3,11 +3,11 @@
   <title>Charseki&#39;s Blog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://www.chenshengkai.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://www.chenshengkai.com/"/>
   <updated>2020-12-05T12:50:21.300Z</updated>
-  <id>http://example.com/</id>
+  <id>https://www.chenshengkai.com/</id>
   
   <author>
     <name>Charseki</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test_images</title>
-    <link href="http://example.com/2020/12/05/test-images/"/>
-    <id>http://example.com/2020/12/05/test-images/</id>
+    <link href="https://www.chenshengkai.com/2020/12/05/test-images/"/>
+    <id>https://www.chenshengkai.com/2020/12/05/test-images/</id>
     <published>2020-12-05T11:44:12.000Z</published>
     <updated>2020-12-05T12:50:21.300Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>test_encrypt</title>
-    <link href="http://example.com/2020/11/29/test-encrypt/"/>
-    <id>http://example.com/2020/11/29/test-encrypt/</id>
+    <link href="https://www.chenshengkai.com/2020/11/29/test-encrypt/"/>
+    <id>https://www.chenshengkai.com/2020/11/29/test-encrypt/</id>
     <published>2020-11-29T01:25:46.057Z</published>
     <updated>2020-11-29T01:32:04.578Z</updated>
     
@@ -51,14 +51,14 @@
     
     
     
-    <category term="encrypted" scheme="http://example.com/tags/encrypted/"/>
+    <category term="encrypted" scheme="https://www.chenshengkai.com/tags/encrypted/"/>
     
   </entry>
   
   <entry>
     <title>test_my_site</title>
-    <link href="http://example.com/2020/11/29/test-my-site/"/>
-    <id>http://example.com/2020/11/29/test-my-site/</id>
+    <link href="https://www.chenshengkai.com/2020/11/29/test-my-site/"/>
+    <id>https://www.chenshengkai.com/2020/11/29/test-my-site/</id>
     <published>2020-11-28T23:49:48.000Z</published>
     <updated>2020-11-28T23:49:48.161Z</updated>
     
@@ -70,8 +70,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2020/11/29/hello-world/"/>
-    <id>http://example.com/2020/11/29/hello-world/</id>
+    <link href="https://www.chenshengkai.com/2020/11/29/hello-world/"/>
+    <id>https://www.chenshengkai.com/2020/11/29/hello-world/</id>
     <published>2020-11-28T20:28:37.026Z</published>
     <updated>2020-11-28T20:28:37.027Z</updated>
     
