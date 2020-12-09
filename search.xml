@@ -9,47 +9,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LNMP之Nginx服务器搭建</title>
-    <url>/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="002-LNMP之Nginx服务器搭建"><a href="#002-LNMP之Nginx服务器搭建" class="headerlink" title="002-LNMP之Nginx服务器搭建"></a>002-LNMP之Nginx服务器搭建</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><strong>常见Web服务器：</strong></p>
-<p>1、Apache</p>
-<p>2、Nginx</p>
-<p>以上是常见的两种web服务器，这里我选择Nginx，因为安装和配置都比较简洁，功能也强大，满足日常的反向代理，负载均衡等功能。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Nginx服务器的编译安装"><a href="#Nginx服务器的编译安装" class="headerlink" title="Nginx服务器的编译安装"></a><strong>Nginx服务器的编译安装</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先是安装Nginx所需要的一些依赖包</span></span><br><span class="line">yum install -y wget gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206215646.png"></p>
-<p>这里不得不提一句：yum大法好呀，自己会去找依赖所需要的依赖，出现Complete就是完成了。</p>
-<p>然后就是去Nginx官网下载源码包，进行编译安装的操作。</p>
-<p>贴个Nginx下载的传送门：<a href="http://nginx.org/download/nginx-1.18.0.tar.gz">点我下载Nginx</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载路径我选择到 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line">wget http://nginx.org/download/nginx-1.18.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.18.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-<h3 id="手动启动和关闭Nginx"><a href="#手动启动和关闭Nginx" class="headerlink" title="手动启动和关闭Nginx"></a><strong>手动启动和关闭Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line"><span class="comment"># 检查Nginx配置</span></span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment"># 启动Nginx</span></span><br><span class="line">nginx</span><br><span class="line"><span class="comment"># 关闭Nginx</span></span><br><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
-
-<p>设置完系统环境变量后，记得source立即生效一下。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220007.png"></p>
-<h3 id="验证Nginx是否安装成功"><a href="#验证Nginx是否安装成功" class="headerlink" title="验证Nginx是否安装成功"></a><strong>验证Nginx是否安装成功</strong></h3><p>1.查看进程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220051.png"></p>
-<p> 2.查看监听端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220118.png"></p>
-<p> 3.nginx日志访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220203.png"></p>
-<p>4.浏览器访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220247.png"></p>
-<h3 id="使用systemctl管理Nginx"><a href="#使用systemctl管理Nginx" class="headerlink" title="使用systemctl管理Nginx"></a><strong>使用systemctl管理Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置路径</span></span><br><span class="line">/usr/lib/systemd/system/nginx.service</span><br><span class="line"><span class="comment"># 配置内容</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p> 然后就可以用systemctl管理nginx服务了。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动nginx服务</span></span><br><span class="line">systemctl start nginx</span><br><span class="line"><span class="comment"># 查看nginx服务状态</span></span><br><span class="line">systemctl status nginx</span><br><span class="line"><span class="comment"># 重启nginx服务</span></span><br><span class="line">sytemctl restart nginx</span><br><span class="line"><span class="comment"># 停止nginx服务</span></span><br><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LNMP之Mysql源码编译安装</title>
     <url>/2020/12/06/LNMP%E4%B9%8BMysql%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="004-LNMP之Mysql源码编译安装"><a href="#004-LNMP之Mysql源码编译安装" class="headerlink" title="004-LNMP之Mysql源码编译安装"></a>004-LNMP之Mysql源码编译安装</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
@@ -87,6 +46,47 @@
 <h3 id="网络登录Mysql"><a href="#网络登录Mysql" class="headerlink" title="网络登录Mysql"></a>网络登录Mysql</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mysql数据库服务器地址:192.168.4.99</span></span><br><span class="line"><span class="comment"># 我用另外一台linux机器:192.168.4.98 网络登录Mysql数据库访问</span></span><br><span class="line">mysql -h 192.168.4.99 -uroot -proot -A</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206223324.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LNMP之Nginx服务器搭建</title>
+    <url>/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="002-LNMP之Nginx服务器搭建"><a href="#002-LNMP之Nginx服务器搭建" class="headerlink" title="002-LNMP之Nginx服务器搭建"></a>002-LNMP之Nginx服务器搭建</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><strong>常见Web服务器：</strong></p>
+<p>1、Apache</p>
+<p>2、Nginx</p>
+<p>以上是常见的两种web服务器，这里我选择Nginx，因为安装和配置都比较简洁，功能也强大，满足日常的反向代理，负载均衡等功能。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Nginx服务器的编译安装"><a href="#Nginx服务器的编译安装" class="headerlink" title="Nginx服务器的编译安装"></a><strong>Nginx服务器的编译安装</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先是安装Nginx所需要的一些依赖包</span></span><br><span class="line">yum install -y wget gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206215646.png"></p>
+<p>这里不得不提一句：yum大法好呀，自己会去找依赖所需要的依赖，出现Complete就是完成了。</p>
+<p>然后就是去Nginx官网下载源码包，进行编译安装的操作。</p>
+<p>贴个Nginx下载的传送门：<a href="http://nginx.org/download/nginx-1.18.0.tar.gz">点我下载Nginx</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载路径我选择到 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line">wget http://nginx.org/download/nginx-1.18.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.18.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="手动启动和关闭Nginx"><a href="#手动启动和关闭Nginx" class="headerlink" title="手动启动和关闭Nginx"></a><strong>手动启动和关闭Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line"><span class="comment"># 检查Nginx配置</span></span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment"># 启动Nginx</span></span><br><span class="line">nginx</span><br><span class="line"><span class="comment"># 关闭Nginx</span></span><br><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<p>设置完系统环境变量后，记得source立即生效一下。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220007.png"></p>
+<h3 id="验证Nginx是否安装成功"><a href="#验证Nginx是否安装成功" class="headerlink" title="验证Nginx是否安装成功"></a><strong>验证Nginx是否安装成功</strong></h3><p>1.查看进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220051.png"></p>
+<p> 2.查看监听端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220118.png"></p>
+<p> 3.nginx日志访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220203.png"></p>
+<p>4.浏览器访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220247.png"></p>
+<h3 id="使用systemctl管理Nginx"><a href="#使用systemctl管理Nginx" class="headerlink" title="使用systemctl管理Nginx"></a><strong>使用systemctl管理Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置路径</span></span><br><span class="line">/usr/lib/systemd/system/nginx.service</span><br><span class="line"><span class="comment"># 配置内容</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p> 然后就可以用systemctl管理nginx服务了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动nginx服务</span></span><br><span class="line">systemctl start nginx</span><br><span class="line"><span class="comment"># 查看nginx服务状态</span></span><br><span class="line">systemctl status nginx</span><br><span class="line"><span class="comment"># 重启nginx服务</span></span><br><span class="line">sytemctl restart nginx</span><br><span class="line"><span class="comment"># 停止nginx服务</span></span><br><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Linux运维</category>
