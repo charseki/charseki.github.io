@@ -193,30 +193,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Zabbix4.0网页汉化</title>
-    <url>/2020/12/06/Zabbix%E7%BD%91%E9%A1%B5%E6%B1%89%E5%8C%96/</url>
-    <content><![CDATA[<h1 id="007-Zabbix网页汉化实战"><a href="#007-Zabbix网页汉化实战" class="headerlink" title="007-Zabbix网页汉化实战"></a>007-Zabbix网页汉化实战</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a><strong>背景介绍</strong></h2><p>Zabbix网页在设置成中文后，监测-&gt;图形里的监控图形会有乱码的产生。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232540.png"></p>
-<p> 修改文中文后，出现乱码的情况。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232609.png"></p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>解决zabbix部分乱码的情况。</p>
-<h3 id="下载微软雅黑字体"><a href="#下载微软雅黑字体" class="headerlink" title="下载微软雅黑字体"></a>下载微软雅黑字体</h3><p>网盘链接: <a href="https://pan.baidu.com/s/1C40EzFfgOFWYCcepTUMeMQ">https://pan.baidu.com/s/1C40EzFfgOFWYCcepTUMeMQ</a>  密码: 0951</p>
-<a id="more"></a>
-<h3 id="字体的存放目录"><a href="#字体的存放目录" class="headerlink" title="字体的存放目录"></a>字体的存放目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/html/zabbix/fonts</span><br></pre></td></tr></table></figure>
-
-<h3 id="上传微软雅黑字体"><a href="#上传微软雅黑字体" class="headerlink" title="上传微软雅黑字体"></a>上传微软雅黑字体</h3><h3 id="字体配置修改"><a href="#字体配置修改" class="headerlink" title="字体配置修改"></a>字体配置修改</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /usr/<span class="built_in">local</span>/nginx/html/zabbix/include/defines.inc.php</span><br></pre></td></tr></table></figure>
-
-<p>默认是DejaVuSans字体，改成msyh微软雅黑字体</p>
-<h3 id="验证乱码问题是否解决"><a href="#验证乱码问题是否解决" class="headerlink" title="验证乱码问题是否解决"></a>验证乱码问题是否解决</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232958.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>Zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Zabbix4.0版本编译安装</title>
     <url>/2020/12/06/Zabbix%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="006-Zabbix4-0版本编译安装"><a href="#006-Zabbix4-0版本编译安装" class="headerlink" title="006-Zabbix4.0版本编译安装"></a>006-Zabbix4.0版本编译安装</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><h3 id="Zabbix源码编译安装"><a href="#Zabbix源码编译安装" class="headerlink" title="Zabbix源码编译安装"></a>Zabbix源码编译安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># zabbix的一些依赖包安装</span></span><br><span class="line">yum install -y libevent-devel wget tar gcc gcc-c++ make net-snmp-devel libxml2-devel libcurl-devel</span><br><span class="line"><span class="comment"># 创建启动进程的用户zabbix</span></span><br><span class="line">useradd -s /sbin/nologin zabbix</span><br><span class="line"><span class="comment"># zaibbx的tar下载</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src/</span><br><span class="line">wget https://nchc.dl.sourceforge.net/project/zabbix/ZABBIX Latest Stable/4.0.3/zabbix-4.0.3.tar.gz</span><br><span class="line"><span class="comment"># 解压zabbix的tar包</span></span><br><span class="line">tar -zxvf zabbix-4.0.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> zabbix-4.0.3</span><br><span class="line"><span class="comment"># zabbix编译安装</span></span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/zabbix --enable-server --enable-agent --with-mysql=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config --with-net-snmp --with-libcurl --with-libxml2</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
@@ -255,6 +231,30 @@
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206231851.png"></p>
 <p>4.更改Admin的密码，改成自己想要的密码</p>
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206231916.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>Zabbix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Zabbix4.0网页汉化</title>
+    <url>/2020/12/06/Zabbix%E7%BD%91%E9%A1%B5%E6%B1%89%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="007-Zabbix网页汉化实战"><a href="#007-Zabbix网页汉化实战" class="headerlink" title="007-Zabbix网页汉化实战"></a>007-Zabbix网页汉化实战</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a><strong>背景介绍</strong></h2><p>Zabbix网页在设置成中文后，监测-&gt;图形里的监控图形会有乱码的产生。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232540.png"></p>
+<p> 修改文中文后，出现乱码的情况。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232609.png"></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>解决zabbix部分乱码的情况。</p>
+<h3 id="下载微软雅黑字体"><a href="#下载微软雅黑字体" class="headerlink" title="下载微软雅黑字体"></a>下载微软雅黑字体</h3><p>网盘链接: <a href="https://pan.baidu.com/s/1C40EzFfgOFWYCcepTUMeMQ">https://pan.baidu.com/s/1C40EzFfgOFWYCcepTUMeMQ</a>  密码: 0951</p>
+<a id="more"></a>
+<h3 id="字体的存放目录"><a href="#字体的存放目录" class="headerlink" title="字体的存放目录"></a>字体的存放目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/html/zabbix/fonts</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传微软雅黑字体"><a href="#上传微软雅黑字体" class="headerlink" title="上传微软雅黑字体"></a>上传微软雅黑字体</h3><h3 id="字体配置修改"><a href="#字体配置修改" class="headerlink" title="字体配置修改"></a>字体配置修改</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /usr/<span class="built_in">local</span>/nginx/html/zabbix/include/defines.inc.php</span><br></pre></td></tr></table></figure>
+
+<p>默认是DejaVuSans字体，改成msyh微软雅黑字体</p>
+<h3 id="验证乱码问题是否解决"><a href="#验证乱码问题是否解决" class="headerlink" title="验证乱码问题是否解决"></a>验证乱码问题是否解决</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206232958.png"></p>
 ]]></content>
       <categories>
         <category>Linux运维</category>
