@@ -1286,7 +1286,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #509dab;
+  background: #4939ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2262,7 +2262,7 @@ pre .javascript .function {
   color: #1890ff;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #55ff12;
+  color: #ecff5c;
 }
 a,
 span.exturl {
@@ -2338,9 +2338,6 @@ body {
 }
 .popup {
   opacity: 0.98;
-}
-.v[data-class=v] .vwrap {
-  border: 1px solid #7d7d7d;
 }
 @-moz-keyframes dot-flash {
   from {
