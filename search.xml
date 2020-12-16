@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Encrypt_Demo</title>
+    <url>/2020/11/29/Encrypt_Demo/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码错误,请重新输入！" data-whm="文章不能被校验,不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好,请在下方输入密码！" /><label>您好,请在下方输入密码！</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="19c06c3d70add7aa0c74b425e5af2935f9176dfb0934fb3d9d1c5ead7337e7cb">f0e260aa95ce3ceffcb2b4f9bd98f3f35189ff6848982a804d96cce2bf6aba109b6e9673bb192ee04d918b10de44b772208572ab4bd84e5baf09905fa8d8eec1229b9bd21eb165cc2371b188aec6d6e4940da0597c62a830892a92f05db74a9d1537e7db0c82eba8f1ce1e769bd062aa65a5221b524fbed9d65ded3b659c363d9a30130d01be9f5c3891bee6972c5d9614d13320b7212dc18691a8decc461a4381e776f1523ebba2aaf429e5c851a1e3962014f99294da2940c9c42cc0df5e83104a11712d78e4a431d42d0b933dc8159259545e24018dafeb2402d57e39a4797a98795b985224dcaf3599ab90222f2b12c3e70378795a422a7011e03a284695084eee849f4e217724b884e0f318f296d116842ee5189b54590870d388b867481bb30446bab709f725f1cdc287f6b4367a5b2362e859e9a0e57188fbe9110fb42c62c360b173ddcd63de733fc7cf0820c1b857113570710fd7c3492b1daf1207b2c4bc1c0e9c2f9d7482346de38d5ab4c2f4140f9bf8a046e561ef0c931f0818ee2cb9d6789ae2fd17ceebd072d72100a901943d7ceaa5422df02f3362d1124ae52a975395aca8318a23dac8681c2e08</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>Encrypted</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kali Linux 2020.4 替换BurpSuite Pro 1.7.37</title>
+    <url>/2020/12/16/Kali-Linux-2020-4-%E6%9B%BF%E6%8D%A2BurpSuite-Pro-1-7-37/</url>
+    <content><![CDATA[<h1 id="Kali-Linux-2020-4-替换BurpSuite-Pro-1-7-37"><a href="#Kali-Linux-2020-4-替换BurpSuite-Pro-1-7-37" class="headerlink" title="Kali Linux 2020.4 替换BurpSuite Pro 1.7.37"></a>Kali Linux 2020.4 替换BurpSuite Pro 1.7.37</h1><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>新出的kail linux 2020.4自带的burpsuite是社区版的，通过此贴记录升级过程。</p>
+<h3 id="BP破解"><a href="#BP破解" class="headerlink" title="BP破解"></a>BP破解</h3><p>1、先删除自带的社区版burpsuite</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm -rf /usr/bin/burpsuite</span><br></pre></td></tr></table></figure>
+
+<p>2、然后在/usr/bin下面新建一个burp文件夹，把两个jar包都放到这里。</p>
+<p>3、运行破解补丁包 burp-loader-keygen.jar</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -jar burp-loader-keygen.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216145424.png" alt="image-20201216145420403"></p>
+<p>点击界面上的“Run”，进入程序安装界面。</p>
+<p>把License复制到里面–&gt;Next–&gt;选择Manual activation–&gt;</p>
+<p>Copy request到Activation Request里面，得到Activation Response–&gt;</p>
+<p>点击程序里的Paste response–&gt;Next–&gt;完成安装。</p>
+<p><strong>升级过程很简单，不做过多介绍。</strong></p>
+<a id="more"></a>
+
+<h3 id="修改快捷方式"><a href="#修改快捷方式" class="headerlink" title="修改快捷方式"></a>修改快捷方式</h3><p>1、确保jdk已经切换到1.8版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update-alternatives  --config  java</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216150725.png" alt="image-20201216150721971"></p>
+<p>2、vim新建一个文件burpsuite，内容为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">java -Xbootclasspath/p:/usr/bin/burp/burp-loader-keygen.jar -jar /usr/bin/burp/burpsuite_pro_v1.7.37.jar</span><br></pre></td></tr></table></figure>
+
+<p>3、保存退出，增加执行权限。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/bin/burpsuite</span><br></pre></td></tr></table></figure>
+
+<p>4、进入/usr/share/applications，并编辑burpsuite的快捷方式</p>
+<p>修改内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216151148.png" alt="image-20201216151143914"></p>
+<p>把原来的：Exec=sh -c “java -jar /usr/bin/burpsuite” 改为 Exec=sh -c “/usr/bin/burpsuite”</p>
+<p>5、然后就可以使用桌面的快捷方式启动BurpSuite了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216151343.png" alt="image-20201216151340947"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216151414.png" alt="image-20201216151406810"></p>
+]]></content>
+      <categories>
+        <category>Kali Linux</category>
+      </categories>
+      <tags>
+        <tag>BurpSuite</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kali Linux 安装JDK8</title>
+    <url>/2020/12/16/Kali-Linux-%E5%AE%89%E8%A3%85JDK8/</url>
+    <content><![CDATA[<h1 id="Kali-Linux-安装JDK8"><a href="#Kali-Linux-安装JDK8" class="headerlink" title="Kali Linux 安装JDK8"></a>Kali Linux 安装JDK8</h1><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>自带的jdk版本太高，有些软件不兼容，所以打算卸载，重新安装jdk1.8</p>
+<h3 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h3><p>自行去Oracle官网下载JDK1.8</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /usr/<span class="built_in">local</span>/java</span><br><span class="line">sudo cp jdk-8u161-linux-x64.tar.gz /usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br><span class="line">sudo tar -zxvf jdk-8u91-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment">### JDK Environment</span></span><br><span class="line">JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_161</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME</span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="通知系统java的位置"><a href="#通知系统java的位置" class="headerlink" title="通知系统java的位置"></a>通知系统java的位置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/java&quot;</span> <span class="string">&quot;java&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/java&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javac&quot;</span> <span class="string">&quot;javac&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javac&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javaws&quot;</span> <span class="string">&quot;javaws&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javaws&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javaws&quot;</span> <span class="string">&quot;javaws&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javaws&quot;</span> 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置默认JDK"><a href="#设置默认JDK" class="headerlink" title="设置默认JDK"></a>设置默认JDK</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --<span class="built_in">set</span> java /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/java</span><br><span class="line">sudo update-alternatives --<span class="built_in">set</span> javac /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/javac</span><br><span class="line">sudo update-alternatives --<span class="built_in">set</span> javaws /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/javaws</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载profile"><a href="#重载profile" class="headerlink" title="重载profile"></a>重载profile</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证JDK"><a href="#验证JDK" class="headerlink" title="验证JDK"></a>验证JDK</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216110221.png" alt="image-20201216110212117"></p>
+]]></content>
+      <categories>
+        <category>Kali Linux</category>
+      </categories>
+      <tags>
+        <tag>JDK8</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LNMP之Mysql源码编译安装</title>
     <url>/2020/12/06/LNMP%E4%B9%8BMysql%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="004-LNMP之Mysql源码编译安装"><a href="#004-LNMP之Mysql源码编译安装" class="headerlink" title="004-LNMP之Mysql源码编译安装"></a>004-LNMP之Mysql源码编译安装</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
@@ -47,40 +125,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Encrypt_Demo</title>
-    <url>/2020/11/29/Encrypt_Demo/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码错误,请重新输入！" data-whm="文章不能被校验,不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好,请在下方输入密码！" /><label>您好,请在下方输入密码！</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="19c06c3d70add7aa0c74b425e5af2935f9176dfb0934fb3d9d1c5ead7337e7cb">f0e260aa95ce3ceffcb2b4f9bd98f3f35189ff6848982a804d96cce2bf6aba109b6e9673bb192ee04d918b10de44b772208572ab4bd84e5baf09905fa8d8eec1229b9bd21eb165cc2371b188aec6d6e4940da0597c62a830892a92f05db74a9d1537e7db0c82eba8f1ce1e769bd062aa65a5221b524fbed9d65ded3b659c363d9a30130d01be9f5c3891bee6972c5d9614d13320b7212dc18691a8decc461a4381e776f1523ebba2aaf429e5c851a1e3962014f99294da2940c9c42cc0df5e83104a11712d78e4a431d42d0b933dc8159259545e24018dafeb2402d57e39a4797a98795b985224dcaf3599ab90222f2b12c3e70378795a422a7011e03a284695084eee849f4e217724b884e0f318f296d116842ee5189b54590870d388b867481bb30446bab709f725f1cdc287f6b4367a5b2362e859e9a0e57188fbe9110fb42c62c360b173ddcd63de733fc7cf0820c1b857113570710fd7c3492b1daf1207b2c4bc1c0e9c2f9d7482346de38d5ab4c2f4140f9bf8a046e561ef0c931f0818ee2cb9d6789ae2fd17ceebd072d72100a901943d7ceaa5422df02f3362d1124ae52a975395aca8318a23dac8681c2e08</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>Encrypted</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kali Linux 安装JDK8</title>
-    <url>/2020/12/16/Kali-Linux-%E5%AE%89%E8%A3%85JDK8/</url>
-    <content><![CDATA[<h1 id="Kali-Linux-安装JDK8"><a href="#Kali-Linux-安装JDK8" class="headerlink" title="Kali Linux 安装JDK8"></a>Kali Linux 安装JDK8</h1><h3 id="0x01-背景介绍"><a href="#0x01-背景介绍" class="headerlink" title="0x01 背景介绍"></a>0x01 背景介绍</h3><p>自带的jdk版本太高，有些软件不兼容，所以打算卸载，重新安装jdk1.8</p>
-<h3 id="0x02-下载解压"><a href="#0x02-下载解压" class="headerlink" title="0x02 下载解压"></a>0x02 下载解压</h3><p>自行去Oracle官网下载JDK1.8</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /usr/<span class="built_in">local</span>/java</span><br><span class="line">sudo cp jdk-8u161-linux-x64.tar.gz /usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br><span class="line">sudo tar -zxvf jdk-8u91-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x03-配置环境变量"><a href="#0x03-配置环境变量" class="headerlink" title="0x03 配置环境变量"></a>0x03 配置环境变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment">### JDK Environment</span></span><br><span class="line">JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_161</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME</span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="0x04-通知系统java的位置"><a href="#0x04-通知系统java的位置" class="headerlink" title="0x04 通知系统java的位置"></a>0x04 通知系统java的位置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/java&quot;</span> <span class="string">&quot;java&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/java&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javac&quot;</span> <span class="string">&quot;javac&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javac&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javaws&quot;</span> <span class="string">&quot;javaws&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javaws&quot;</span> 1</span><br><span class="line">sudo update-alternatives --install <span class="string">&quot;/usr/bin/javaws&quot;</span> <span class="string">&quot;javaws&quot;</span> <span class="string">&quot;/usr/local/java/jdk1.8.0_161/bin/javaws&quot;</span> 1</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x05-设置默认JDK"><a href="#0x05-设置默认JDK" class="headerlink" title="0x05 设置默认JDK"></a>0x05 设置默认JDK</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --<span class="built_in">set</span> java /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/java</span><br><span class="line">sudo update-alternatives --<span class="built_in">set</span> javac /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/javac</span><br><span class="line">sudo update-alternatives --<span class="built_in">set</span> javaws /usr/<span class="built_in">local</span>/java/jdk1.8.0_161/bin/javaws</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x06-重载profile"><a href="#0x06-重载profile" class="headerlink" title="0x06 重载profile"></a>0x06 重载profile</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-
-<h3 id="0x07-验证JDK"><a href="#0x07-验证JDK" class="headerlink" title="0x07 验证JDK"></a>0x07 验证JDK</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201216110221.png" alt="image-20201216110212117"></p>
-]]></content>
-      <categories>
-        <category>Kali Linux</category>
-      </categories>
-      <tags>
-        <tag>JDK8</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LNMP之Nginx服务器搭建</title>
     <url>/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="002-LNMP之Nginx服务器搭建"><a href="#002-LNMP之Nginx服务器搭建" class="headerlink" title="002-LNMP之Nginx服务器搭建"></a>002-LNMP之Nginx服务器搭建</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><strong>常见Web服务器：</strong></p>
@@ -122,28 +166,38 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux开机模式和网络设置</title>
-    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
+    <title>LNMP之PHP环境搭建</title>
+    <url>/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a href="https://www.php.net/">https://www.php.net/</a></p>
+<p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
+<h3 id="php编译安装前解决依赖包"><a href="#php编译安装前解决依赖包" class="headerlink" title="php编译安装前解决依赖包"></a>php编译安装前解决依赖包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel openldap openldap-devel libmcrypt libmcrypt-devel sqlite sqlite-devel oniguruma-devel oniguruma</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
+<h3 id="源码编译安装php"><a href="#源码编译安装php" class="headerlink" title="源码编译安装php"></a>源码编译安装php</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php --with-config-file-path=/usr/<span class="built_in">local</span>/php/etc --enable-ctype --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fpm</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 在/usr/local/php/etc目录下，默认是没有php.ini这个配置文件的，需要拷贝一个过去</span></span><br><span class="line"><span class="comment"># 拷贝的文件路径/usr/local/src/php-7.4.7</span></span><br><span class="line">cp /usr/<span class="built_in">local</span>/src/php-7.4.7/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure>
 
-<p>修改完之后，reboot一下就能看到效果了。</p>
-<a id="more"></a>
-<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
-<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
-<p>然后去修改这个网卡配置的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
-<p>修改内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
-<p> 然后route-n查看一下路由信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
-<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
+<a id="more"></a>he
+<h3 id="php编译安装说明"><a href="#php编译安装说明" class="headerlink" title="php编译安装说明"></a>php编译安装说明</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--prefix 指定php的安装目录</span><br><span class="line">--with-config-file-path 指定php的配置文件位置</span><br><span class="line">--with-mysql 让php可以操作mysql</span><br><span class="line">--enable-fpm 主要是nginx要来调用php语言使得php-fpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动php-fpm"><a href="#启动php-fpm" class="headerlink" title="启动php-fpm"></a>启动php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/sbin/:/usr/<span class="built_in">local</span>/php/bin/</span><br><span class="line"><span class="comment"># 检查配置文件</span></span><br><span class="line">php-fpm -t</span><br><span class="line"><span class="comment"># 使用默认配置文件</span></span><br><span class="line">mv /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 查看php-fpm的listen配置</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="验证php-fpm的启动"><a href="#验证php-fpm的启动" class="headerlink" title="验证php-fpm的启动"></a>验证php-fpm的启动</h3><p>1.进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png"></p>
+<p>2.端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png"></p>
+<p>3.日志</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png"></p>
+<h3 id="使用systemctl管理php-fpm"><a href="#使用systemctl管理php-fpm" class="headerlink" title="使用systemctl管理php-fpm"></a>使用systemctl管理php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建配置文件的路径</span></span><br><span class="line">vi /usr/lib/systemd/system/php-fpm.service</span><br><span class="line"><span class="comment"># 配置内容：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=php-fpm</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h3 id="nginx-php-fpm结合的配置"><a href="#nginx-php-fpm结合的配置" class="headerlink" title="nginx+php-fpm结合的配置"></a>nginx+php-fpm结合的配置</h3><p>测试页代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># test.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>nginx默认配置无法处理php程序，只会下载，需要改配置文件nginx.conf</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">root</span>           html;</span><br><span class="line">            <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">            <span class="attribute">fastcgi_index</span>  index.php;</span><br><span class="line">            <span class="comment"># 修改默认的/scripts为$document_root,去root-&gt;html下面找页面</span></span><br><span class="line">            <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            <span class="attribute">include</span>        fastcgi_params;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="页面test-php访问测试"><a href="#页面test-php访问测试" class="headerlink" title="页面test.php访问测试"></a>页面test.php访问测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png"></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><h3 id="运行systemctl-start-php-fpm报错"><a href="#运行systemctl-start-php-fpm报错" class="headerlink" title="运行systemctl start php-fpm报错"></a>运行systemctl start php-fpm报错</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[30-Jun-2020 18:34:23] WARNING: Nothing matches the include pattern <span class="string">&#x27;/usr/local/php/etc/php-fpm.d/*.conf&#x27;</span> from /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf at line 125.</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: No pool defined. at least one pool section must be specified <span class="keyword">in</span> config file</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: failed to post process the configuration</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: FPM initialization failed</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Linux运维</category>
@@ -169,6 +223,37 @@
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225701.png"></p>
 <p>2.连接失败的界面</p>
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225734.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux开机模式和网络设置</title>
+    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
+
+<p>修改完之后，reboot一下就能看到效果了。</p>
+<a id="more"></a>
+<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
+<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
+<p>然后去修改这个网卡配置的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
+<p>修改内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
+<p> 然后route-n查看一下路由信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
+<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
 ]]></content>
       <categories>
         <category>Linux运维</category>
@@ -246,47 +331,6 @@
       </categories>
       <tags>
         <tag>Zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LNMP之PHP环境搭建</title>
-    <url>/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a href="https://www.php.net/">https://www.php.net/</a></p>
-<p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
-<h3 id="php编译安装前解决依赖包"><a href="#php编译安装前解决依赖包" class="headerlink" title="php编译安装前解决依赖包"></a>php编译安装前解决依赖包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel openldap openldap-devel libmcrypt libmcrypt-devel sqlite sqlite-devel oniguruma-devel oniguruma</span><br></pre></td></tr></table></figure>
-
-<h3 id="源码编译安装php"><a href="#源码编译安装php" class="headerlink" title="源码编译安装php"></a>源码编译安装php</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php --with-config-file-path=/usr/<span class="built_in">local</span>/php/etc --enable-ctype --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fpm</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 在/usr/local/php/etc目录下，默认是没有php.ini这个配置文件的，需要拷贝一个过去</span></span><br><span class="line"><span class="comment"># 拷贝的文件路径/usr/local/src/php-7.4.7</span></span><br><span class="line">cp /usr/<span class="built_in">local</span>/src/php-7.4.7/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>he
-<h3 id="php编译安装说明"><a href="#php编译安装说明" class="headerlink" title="php编译安装说明"></a>php编译安装说明</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--prefix 指定php的安装目录</span><br><span class="line">--with-config-file-path 指定php的配置文件位置</span><br><span class="line">--with-mysql 让php可以操作mysql</span><br><span class="line">--enable-fpm 主要是nginx要来调用php语言使得php-fpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动php-fpm"><a href="#启动php-fpm" class="headerlink" title="启动php-fpm"></a>启动php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/sbin/:/usr/<span class="built_in">local</span>/php/bin/</span><br><span class="line"><span class="comment"># 检查配置文件</span></span><br><span class="line">php-fpm -t</span><br><span class="line"><span class="comment"># 使用默认配置文件</span></span><br><span class="line">mv /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 查看php-fpm的listen配置</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="验证php-fpm的启动"><a href="#验证php-fpm的启动" class="headerlink" title="验证php-fpm的启动"></a>验证php-fpm的启动</h3><p>1.进程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png"></p>
-<p>2.端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png"></p>
-<p>3.日志</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png"></p>
-<h3 id="使用systemctl管理php-fpm"><a href="#使用systemctl管理php-fpm" class="headerlink" title="使用systemctl管理php-fpm"></a>使用systemctl管理php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建配置文件的路径</span></span><br><span class="line">vi /usr/lib/systemd/system/php-fpm.service</span><br><span class="line"><span class="comment"># 配置内容：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=php-fpm</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<h3 id="nginx-php-fpm结合的配置"><a href="#nginx-php-fpm结合的配置" class="headerlink" title="nginx+php-fpm结合的配置"></a>nginx+php-fpm结合的配置</h3><p>测试页代码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># test.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>nginx默认配置无法处理php程序，只会下载，需要改配置文件nginx.conf</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">root</span>           html;</span><br><span class="line">            <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">            <span class="attribute">fastcgi_index</span>  index.php;</span><br><span class="line">            <span class="comment"># 修改默认的/scripts为$document_root,去root-&gt;html下面找页面</span></span><br><span class="line">            <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            <span class="attribute">include</span>        fastcgi_params;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="页面test-php访问测试"><a href="#页面test-php访问测试" class="headerlink" title="页面test.php访问测试"></a>页面test.php访问测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png"></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><h3 id="运行systemctl-start-php-fpm报错"><a href="#运行systemctl-start-php-fpm报错" class="headerlink" title="运行systemctl start php-fpm报错"></a>运行systemctl start php-fpm报错</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[30-Jun-2020 18:34:23] WARNING: Nothing matches the include pattern <span class="string">&#x27;/usr/local/php/etc/php-fpm.d/*.conf&#x27;</span> from /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf at line 125.</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: No pool defined. at least one pool section must be specified <span class="keyword">in</span> config file</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: failed to post process the configuration</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: FPM initialization failed</span><br></pre></td></tr></table></figure>
-
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
       </tags>
   </entry>
 </search>
