@@ -86,6 +86,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png" alt="image-20201217122531481"></p>
 <p>安装完后，可以在菜单栏找到它。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122645.png" alt="image-20201217122639796"></p>
+<a id="more"></a>
 <h3 id="BP-代理设置"><a href="#BP-代理设置" class="headerlink" title="BP 代理设置"></a>BP 代理设置</h3><p>在BurpSuite上添加本地的8888端口为代理服务器。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123007.png" alt="image-20201217123003906"></p>
 <h3 id="FoxyProxy-设置"><a href="#FoxyProxy-设置" class="headerlink" title="FoxyProxy 设置"></a>FoxyProxy 设置</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123233.png" alt="image-20201217123227702"></p>
@@ -138,47 +139,6 @@
 <h3 id="网络登录Mysql"><a href="#网络登录Mysql" class="headerlink" title="网络登录Mysql"></a>网络登录Mysql</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mysql数据库服务器地址:192.168.4.99</span></span><br><span class="line"><span class="comment"># 我用另外一台linux机器:192.168.4.98 网络登录Mysql数据库访问</span></span><br><span class="line">mysql -h 192.168.4.99 -uroot -proot -A</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206223324.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LNMP之PHP环境搭建</title>
-    <url>/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a href="https://www.php.net/">https://www.php.net/</a></p>
-<p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
-<h3 id="php编译安装前解决依赖包"><a href="#php编译安装前解决依赖包" class="headerlink" title="php编译安装前解决依赖包"></a>php编译安装前解决依赖包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel openldap openldap-devel libmcrypt libmcrypt-devel sqlite sqlite-devel oniguruma-devel oniguruma</span><br></pre></td></tr></table></figure>
-
-<h3 id="源码编译安装php"><a href="#源码编译安装php" class="headerlink" title="源码编译安装php"></a>源码编译安装php</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php --with-config-file-path=/usr/<span class="built_in">local</span>/php/etc --enable-ctype --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fpm</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 在/usr/local/php/etc目录下，默认是没有php.ini这个配置文件的，需要拷贝一个过去</span></span><br><span class="line"><span class="comment"># 拷贝的文件路径/usr/local/src/php-7.4.7</span></span><br><span class="line">cp /usr/<span class="built_in">local</span>/src/php-7.4.7/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>he
-<h3 id="php编译安装说明"><a href="#php编译安装说明" class="headerlink" title="php编译安装说明"></a>php编译安装说明</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--prefix 指定php的安装目录</span><br><span class="line">--with-config-file-path 指定php的配置文件位置</span><br><span class="line">--with-mysql 让php可以操作mysql</span><br><span class="line">--enable-fpm 主要是nginx要来调用php语言使得php-fpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动php-fpm"><a href="#启动php-fpm" class="headerlink" title="启动php-fpm"></a>启动php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/sbin/:/usr/<span class="built_in">local</span>/php/bin/</span><br><span class="line"><span class="comment"># 检查配置文件</span></span><br><span class="line">php-fpm -t</span><br><span class="line"><span class="comment"># 使用默认配置文件</span></span><br><span class="line">mv /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 查看php-fpm的listen配置</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="验证php-fpm的启动"><a href="#验证php-fpm的启动" class="headerlink" title="验证php-fpm的启动"></a>验证php-fpm的启动</h3><p>1.进程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png"></p>
-<p>2.端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png"></p>
-<p>3.日志</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png"></p>
-<h3 id="使用systemctl管理php-fpm"><a href="#使用systemctl管理php-fpm" class="headerlink" title="使用systemctl管理php-fpm"></a>使用systemctl管理php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建配置文件的路径</span></span><br><span class="line">vi /usr/lib/systemd/system/php-fpm.service</span><br><span class="line"><span class="comment"># 配置内容：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=php-fpm</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<h3 id="nginx-php-fpm结合的配置"><a href="#nginx-php-fpm结合的配置" class="headerlink" title="nginx+php-fpm结合的配置"></a>nginx+php-fpm结合的配置</h3><p>测试页代码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># test.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>nginx默认配置无法处理php程序，只会下载，需要改配置文件nginx.conf</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">root</span>           html;</span><br><span class="line">            <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">            <span class="attribute">fastcgi_index</span>  index.php;</span><br><span class="line">            <span class="comment"># 修改默认的/scripts为$document_root,去root-&gt;html下面找页面</span></span><br><span class="line">            <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            <span class="attribute">include</span>        fastcgi_params;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="页面test-php访问测试"><a href="#页面test-php访问测试" class="headerlink" title="页面test.php访问测试"></a>页面test.php访问测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png"></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><h3 id="运行systemctl-start-php-fpm报错"><a href="#运行systemctl-start-php-fpm报错" class="headerlink" title="运行systemctl start php-fpm报错"></a>运行systemctl start php-fpm报错</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[30-Jun-2020 18:34:23] WARNING: Nothing matches the include pattern <span class="string">&#x27;/usr/local/php/etc/php-fpm.d/*.conf&#x27;</span> from /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf at line 125.</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: No pool defined. at least one pool section must be specified <span class="keyword">in</span> config file</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: failed to post process the configuration</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: FPM initialization failed</span><br></pre></td></tr></table></figure>
-
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>Linux运维</category>
@@ -254,6 +214,78 @@
       </tags>
   </entry>
   <entry>
+    <title>LNMP之PHP环境搭建</title>
+    <url>/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a href="https://www.php.net/">https://www.php.net/</a></p>
+<p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
+<h3 id="php编译安装前解决依赖包"><a href="#php编译安装前解决依赖包" class="headerlink" title="php编译安装前解决依赖包"></a>php编译安装前解决依赖包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel openldap openldap-devel libmcrypt libmcrypt-devel sqlite sqlite-devel oniguruma-devel oniguruma</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码编译安装php"><a href="#源码编译安装php" class="headerlink" title="源码编译安装php"></a>源码编译安装php</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php --with-config-file-path=/usr/<span class="built_in">local</span>/php/etc --enable-ctype --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fpm</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 在/usr/local/php/etc目录下，默认是没有php.ini这个配置文件的，需要拷贝一个过去</span></span><br><span class="line"><span class="comment"># 拷贝的文件路径/usr/local/src/php-7.4.7</span></span><br><span class="line">cp /usr/<span class="built_in">local</span>/src/php-7.4.7/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>he
+<h3 id="php编译安装说明"><a href="#php编译安装说明" class="headerlink" title="php编译安装说明"></a>php编译安装说明</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--prefix 指定php的安装目录</span><br><span class="line">--with-config-file-path 指定php的配置文件位置</span><br><span class="line">--with-mysql 让php可以操作mysql</span><br><span class="line">--enable-fpm 主要是nginx要来调用php语言使得php-fpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动php-fpm"><a href="#启动php-fpm" class="headerlink" title="启动php-fpm"></a>启动php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/sbin/:/usr/<span class="built_in">local</span>/php/bin/</span><br><span class="line"><span class="comment"># 检查配置文件</span></span><br><span class="line">php-fpm -t</span><br><span class="line"><span class="comment"># 使用默认配置文件</span></span><br><span class="line">mv /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 查看php-fpm的listen配置</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="验证php-fpm的启动"><a href="#验证php-fpm的启动" class="headerlink" title="验证php-fpm的启动"></a>验证php-fpm的启动</h3><p>1.进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png"></p>
+<p>2.端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png"></p>
+<p>3.日志</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png"></p>
+<h3 id="使用systemctl管理php-fpm"><a href="#使用systemctl管理php-fpm" class="headerlink" title="使用systemctl管理php-fpm"></a>使用systemctl管理php-fpm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建配置文件的路径</span></span><br><span class="line">vi /usr/lib/systemd/system/php-fpm.service</span><br><span class="line"><span class="comment"># 配置内容：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=php-fpm</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h3 id="nginx-php-fpm结合的配置"><a href="#nginx-php-fpm结合的配置" class="headerlink" title="nginx+php-fpm结合的配置"></a>nginx+php-fpm结合的配置</h3><p>测试页代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># test.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>nginx默认配置无法处理php程序，只会下载，需要改配置文件nginx.conf</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">root</span>           html;</span><br><span class="line">            <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">            <span class="attribute">fastcgi_index</span>  index.php;</span><br><span class="line">            <span class="comment"># 修改默认的/scripts为$document_root,去root-&gt;html下面找页面</span></span><br><span class="line">            <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            <span class="attribute">include</span>        fastcgi_params;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="页面test-php访问测试"><a href="#页面test-php访问测试" class="headerlink" title="页面test.php访问测试"></a>页面test.php访问测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png"></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><h3 id="运行systemctl-start-php-fpm报错"><a href="#运行systemctl-start-php-fpm报错" class="headerlink" title="运行systemctl start php-fpm报错"></a>运行systemctl start php-fpm报错</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[30-Jun-2020 18:34:23] WARNING: Nothing matches the include pattern <span class="string">&#x27;/usr/local/php/etc/php-fpm.d/*.conf&#x27;</span> from /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf at line 125.</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: No pool defined. at least one pool section must be specified <span class="keyword">in</span> config file</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: failed to post process the configuration</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: FPM initialization failed</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux开机模式和网络设置</title>
+    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
+
+<p>修改完之后，reboot一下就能看到效果了。</p>
+<a id="more"></a>
+<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
+<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
+<p>然后去修改这个网卡配置的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
+<p>修改内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
+<p> 然后route-n查看一下路由信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
+<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Zabbix4.0版本编译安装</title>
     <url>/2020/12/06/Zabbix%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="006-Zabbix4-0版本编译安装"><a href="#006-Zabbix4-0版本编译安装" class="headerlink" title="006-Zabbix4.0版本编译安装"></a>006-Zabbix4.0版本编译安装</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><h3 id="Zabbix源码编译安装"><a href="#Zabbix源码编译安装" class="headerlink" title="Zabbix源码编译安装"></a>Zabbix源码编译安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># zabbix的一些依赖包安装</span></span><br><span class="line">yum install -y libevent-devel wget tar gcc gcc-c++ make net-snmp-devel libxml2-devel libcurl-devel</span><br><span class="line"><span class="comment"># 创建启动进程的用户zabbix</span></span><br><span class="line">useradd -s /sbin/nologin zabbix</span><br><span class="line"><span class="comment"># zaibbx的tar下载</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src/</span><br><span class="line">wget https://nchc.dl.sourceforge.net/project/zabbix/ZABBIX Latest Stable/4.0.3/zabbix-4.0.3.tar.gz</span><br><span class="line"><span class="comment"># 解压zabbix的tar包</span></span><br><span class="line">tar -zxvf zabbix-4.0.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> zabbix-4.0.3</span><br><span class="line"><span class="comment"># zabbix编译安装</span></span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/zabbix --enable-server --enable-agent --with-mysql=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config --with-net-snmp --with-libcurl --with-libxml2</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
@@ -298,37 +330,6 @@
       </categories>
       <tags>
         <tag>Zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux开机模式和网络设置</title>
-    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
-
-<p>修改完之后，reboot一下就能看到效果了。</p>
-<a id="more"></a>
-<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
-<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
-<p>然后去修改这个网卡配置的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
-<p>修改内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
-<p> 然后route-n查看一下路由信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
-<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
       </tags>
   </entry>
   <entry>
