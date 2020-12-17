@@ -79,6 +79,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Kali Linux Firefox 代理设置</title>
+    <url>/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h1 id="Kali-Linux-Firefox-代理设置"><a href="#Kali-Linux-Firefox-代理设置" class="headerlink" title="Kali Linux Firefox 代理设置"></a>Kali Linux Firefox 代理设置</h1><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>在浏览器上设置代理地址，配合BurpSuite可以进行截包/改包/发包等操作，这里用Firefox浏览器做示例。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>通过Firefox自带的一款插件：FoxyProxy 实现。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png" alt="image-20201217122531481"></p>
+<p>安装完后，可以在菜单栏找到它。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122645.png" alt="image-20201217122639796"></p>
+<h3 id="BP-代理设置"><a href="#BP-代理设置" class="headerlink" title="BP 代理设置"></a>BP 代理设置</h3><p>在BurpSuite上添加本地的8888端口为代理服务器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123007.png" alt="image-20201217123003906"></p>
+<h3 id="FoxyProxy-设置"><a href="#FoxyProxy-设置" class="headerlink" title="FoxyProxy 设置"></a>FoxyProxy 设置</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123233.png" alt="image-20201217123227702"></p>
+<p>开启burpsuite这个代理选项。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123343.png" alt="image-20201217123339643"></p>
+<h3 id="BP-截包测试"><a href="#BP-截包测试" class="headerlink" title="BP 截包测试"></a>BP 截包测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123548.png" alt="image-20201217123544981"></p>
+]]></content>
+      <categories>
+        <category>Kali Linux</category>
+      </categories>
+      <tags>
+        <tag>Proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LNMP之Mysql源码编译安装</title>
     <url>/2020/12/06/LNMP%E4%B9%8BMysql%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="004-LNMP之Mysql源码编译安装"><a href="#004-LNMP之Mysql源码编译安装" class="headerlink" title="004-LNMP之Mysql源码编译安装"></a>004-LNMP之Mysql源码编译安装</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>搜狐镜像源：<a href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
@@ -116,47 +138,6 @@
 <h3 id="网络登录Mysql"><a href="#网络登录Mysql" class="headerlink" title="网络登录Mysql"></a>网络登录Mysql</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mysql数据库服务器地址:192.168.4.99</span></span><br><span class="line"><span class="comment"># 我用另外一台linux机器:192.168.4.98 网络登录Mysql数据库访问</span></span><br><span class="line">mysql -h 192.168.4.99 -uroot -proot -A</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206223324.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LNMP之Nginx服务器搭建</title>
-    <url>/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="002-LNMP之Nginx服务器搭建"><a href="#002-LNMP之Nginx服务器搭建" class="headerlink" title="002-LNMP之Nginx服务器搭建"></a>002-LNMP之Nginx服务器搭建</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><strong>常见Web服务器：</strong></p>
-<p>1、Apache</p>
-<p>2、Nginx</p>
-<p>以上是常见的两种web服务器，这里我选择Nginx，因为安装和配置都比较简洁，功能也强大，满足日常的反向代理，负载均衡等功能。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Nginx服务器的编译安装"><a href="#Nginx服务器的编译安装" class="headerlink" title="Nginx服务器的编译安装"></a><strong>Nginx服务器的编译安装</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先是安装Nginx所需要的一些依赖包</span></span><br><span class="line">yum install -y wget gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206215646.png"></p>
-<p>这里不得不提一句：yum大法好呀，自己会去找依赖所需要的依赖，出现Complete就是完成了。</p>
-<p>然后就是去Nginx官网下载源码包，进行编译安装的操作。</p>
-<p>贴个Nginx下载的传送门：<a href="http://nginx.org/download/nginx-1.18.0.tar.gz">点我下载Nginx</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载路径我选择到 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line">wget http://nginx.org/download/nginx-1.18.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.18.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-<h3 id="手动启动和关闭Nginx"><a href="#手动启动和关闭Nginx" class="headerlink" title="手动启动和关闭Nginx"></a><strong>手动启动和关闭Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line"><span class="comment"># 检查Nginx配置</span></span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment"># 启动Nginx</span></span><br><span class="line">nginx</span><br><span class="line"><span class="comment"># 关闭Nginx</span></span><br><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
-
-<p>设置完系统环境变量后，记得source立即生效一下。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220007.png"></p>
-<h3 id="验证Nginx是否安装成功"><a href="#验证Nginx是否安装成功" class="headerlink" title="验证Nginx是否安装成功"></a><strong>验证Nginx是否安装成功</strong></h3><p>1.查看进程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220051.png"></p>
-<p> 2.查看监听端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220118.png"></p>
-<p> 3.nginx日志访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220203.png"></p>
-<p>4.浏览器访问</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220247.png"></p>
-<h3 id="使用systemctl管理Nginx"><a href="#使用systemctl管理Nginx" class="headerlink" title="使用systemctl管理Nginx"></a><strong>使用systemctl管理Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置路径</span></span><br><span class="line">/usr/lib/systemd/system/nginx.service</span><br><span class="line"><span class="comment"># 配置内容</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p> 然后就可以用systemctl管理nginx服务了。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动nginx服务</span></span><br><span class="line">systemctl start nginx</span><br><span class="line"><span class="comment"># 查看nginx服务状态</span></span><br><span class="line">systemctl status nginx</span><br><span class="line"><span class="comment"># 重启nginx服务</span></span><br><span class="line">sytemctl restart nginx</span><br><span class="line"><span class="comment"># 停止nginx服务</span></span><br><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>Linux运维</category>
@@ -207,6 +188,47 @@
       </tags>
   </entry>
   <entry>
+    <title>LNMP之Nginx服务器搭建</title>
+    <url>/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="002-LNMP之Nginx服务器搭建"><a href="#002-LNMP之Nginx服务器搭建" class="headerlink" title="002-LNMP之Nginx服务器搭建"></a>002-LNMP之Nginx服务器搭建</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><strong>常见Web服务器：</strong></p>
+<p>1、Apache</p>
+<p>2、Nginx</p>
+<p>以上是常见的两种web服务器，这里我选择Nginx，因为安装和配置都比较简洁，功能也强大，满足日常的反向代理，负载均衡等功能。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Nginx服务器的编译安装"><a href="#Nginx服务器的编译安装" class="headerlink" title="Nginx服务器的编译安装"></a><strong>Nginx服务器的编译安装</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先是安装Nginx所需要的一些依赖包</span></span><br><span class="line">yum install -y wget gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206215646.png"></p>
+<p>这里不得不提一句：yum大法好呀，自己会去找依赖所需要的依赖，出现Complete就是完成了。</p>
+<p>然后就是去Nginx官网下载源码包，进行编译安装的操作。</p>
+<p>贴个Nginx下载的传送门：<a href="http://nginx.org/download/nginx-1.18.0.tar.gz">点我下载Nginx</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载路径我选择到 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line">wget http://nginx.org/download/nginx-1.18.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.18.0</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="手动启动和关闭Nginx"><a href="#手动启动和关闭Nginx" class="headerlink" title="手动启动和关闭Nginx"></a><strong>手动启动和关闭Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line"><span class="comment"># 检查Nginx配置</span></span><br><span class="line">nginx -t</span><br><span class="line"><span class="comment"># 启动Nginx</span></span><br><span class="line">nginx</span><br><span class="line"><span class="comment"># 关闭Nginx</span></span><br><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<p>设置完系统环境变量后，记得source立即生效一下。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220007.png"></p>
+<h3 id="验证Nginx是否安装成功"><a href="#验证Nginx是否安装成功" class="headerlink" title="验证Nginx是否安装成功"></a><strong>验证Nginx是否安装成功</strong></h3><p>1.查看进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220051.png"></p>
+<p> 2.查看监听端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220118.png"></p>
+<p> 3.nginx日志访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220203.png"></p>
+<p>4.浏览器访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206220247.png"></p>
+<h3 id="使用systemctl管理Nginx"><a href="#使用systemctl管理Nginx" class="headerlink" title="使用systemctl管理Nginx"></a><strong>使用systemctl管理Nginx</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置路径</span></span><br><span class="line">/usr/lib/systemd/system/nginx.service</span><br><span class="line"><span class="comment"># 配置内容</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p> 然后就可以用systemctl管理nginx服务了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动nginx服务</span></span><br><span class="line">systemctl start nginx</span><br><span class="line"><span class="comment"># 查看nginx服务状态</span></span><br><span class="line">systemctl status nginx</span><br><span class="line"><span class="comment"># 重启nginx服务</span></span><br><span class="line">sytemctl restart nginx</span><br><span class="line"><span class="comment"># 停止nginx服务</span></span><br><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LNMP环境连接Mysql测试</title>
     <url>/2020/12/06/LNMP%E7%8E%AF%E5%A2%83%E8%BF%9E%E6%8E%A5Mysql%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h1 id="005-LNMP环境连接Mysql测试"><a href="#005-LNMP环境连接Mysql测试" class="headerlink" title="005-LNMP环境连接Mysql测试"></a>005-LNMP环境连接Mysql测试</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a><strong>背景介绍</strong></h2><p>用户通过浏览器访问Nginx -&gt; html下的mysql.php文件，去连接Mysql数据库的一个测试</p>
@@ -223,37 +245,6 @@
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225701.png"></p>
 <p>2.连接失败的界面</p>
 <p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225734.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux开机模式和网络设置</title>
-    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
-
-<p>修改完之后，reboot一下就能看到效果了。</p>
-<a id="more"></a>
-<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
-<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
-<p>然后去修改这个网卡配置的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
-<p>修改内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
-<p> 然后route-n查看一下路由信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
-<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
 ]]></content>
       <categories>
         <category>Linux运维</category>
@@ -307,6 +298,37 @@
       </categories>
       <tags>
         <tag>Zabbix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux开机模式和网络设置</title>
+    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
+
+<p>修改完之后，reboot一下就能看到效果了。</p>
+<a id="more"></a>
+<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
+<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
+<p>然后去修改这个网卡配置的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
+<p>修改内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
+<p> 然后route-n查看一下路由信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
+<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
       </tags>
   </entry>
   <entry>

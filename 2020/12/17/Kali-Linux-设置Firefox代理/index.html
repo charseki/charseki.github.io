@@ -22,17 +22,27 @@
     var CONFIG = {"hostname":"www.chenshengkai.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="动漫 &#x2F; 摄影 &#x2F; 许嵩控 &#x2F; 写博客 &#x2F; 睡懒觉">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Charseki&#39;s Blog">
-<meta property="og:url" content="https://www.chenshengkai.com/tags/JDK8/index.html">
+  <meta name="description" content="Kali Linux Firefox 代理设置背景介绍在浏览器上设置代理地址，配合BurpSuite可以进行截包&#x2F;改包&#x2F;发包等操作，这里用Firefox浏览器做示例。 安装插件通过Firefox自带的一款插件：FoxyProxy 实现。  安装完后，可以在菜单栏找到它。  BP 代理设置在BurpSuite上添加本地的8888端口为代理服务器。  FoxyProxy 设置 开启burpsuite这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali Linux Firefox 代理设置">
+<meta property="og:url" content="https://www.chenshengkai.com/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="Charseki&#39;s Blog">
-<meta property="og:description" content="动漫 &#x2F; 摄影 &#x2F; 许嵩控 &#x2F; 写博客 &#x2F; 睡懒觉">
+<meta property="og:description" content="Kali Linux Firefox 代理设置背景介绍在浏览器上设置代理地址，配合BurpSuite可以进行截包&#x2F;改包&#x2F;发包等操作，这里用Firefox浏览器做示例。 安装插件通过Firefox自带的一款插件：FoxyProxy 实现。  安装完后，可以在菜单栏找到它。  BP 代理设置在BurpSuite上添加本地的8888端口为代理服务器。  FoxyProxy 设置 开启burpsuite这">
 <meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122645.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123007.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123233.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123343.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123548.png">
+<meta property="article:published_time" content="2020-12-17T04:16:46.000Z">
+<meta property="article:modified_time" content="2020-12-17T04:38:45.385Z">
 <meta property="article:author" content="Charseki">
+<meta property="article:tag" content="Proxy">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png">
 
-<link rel="canonical" href="https://www.chenshengkai.com/tags/JDK8/">
+<link rel="canonical" href="https://www.chenshengkai.com/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -40,14 +50,14 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
   
 
-  <title>标签: JDK8 | Charseki's Blog</title>
+  <title>Kali Linux Firefox 代理设置 | Charseki's Blog</title>
   
 
 
@@ -192,57 +202,219 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.chenshengkai.com/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Charseki">
+      <meta itemprop="description" content="动漫 / 摄影 / 许嵩控 / 写博客 / 睡懒觉">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Charseki's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kali Linux Firefox 代理设置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-17 12:16:46 / 修改时间：12:38:45" itemprop="dateCreated datePublished" datetime="2020-12-17T12:16:46+08:00">2020-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kali-Linux/" itemprop="url" rel="index"><span itemprop="name">Kali Linux</span></a>
+                </span>
+            </span>
+
+          
+              <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">JDK8
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>198</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h1 id="Kali-Linux-Firefox-代理设置"><a href="#Kali-Linux-Firefox-代理设置" class="headerlink" title="Kali Linux Firefox 代理设置"></a>Kali Linux Firefox 代理设置</h1><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>在浏览器上设置代理地址，配合BurpSuite可以进行截包/改包/发包等操作，这里用Firefox浏览器做示例。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>通过Firefox自带的一款插件：FoxyProxy 实现。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png" alt="image-20201217122531481"></p>
+<p>安装完后，可以在菜单栏找到它。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122645.png" alt="image-20201217122639796"></p>
+<h3 id="BP-代理设置"><a href="#BP-代理设置" class="headerlink" title="BP 代理设置"></a>BP 代理设置</h3><p>在BurpSuite上添加本地的8888端口为代理服务器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123007.png" alt="image-20201217123003906"></p>
+<h3 id="FoxyProxy-设置"><a href="#FoxyProxy-设置" class="headerlink" title="FoxyProxy 设置"></a>FoxyProxy 设置</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123233.png" alt="image-20201217123227702"></p>
+<p>开启burpsuite这个代理选项。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123343.png" alt="image-20201217123339643"></p>
+<h3 id="BP-截包测试"><a href="#BP-截包测试" class="headerlink" title="BP 截包测试"></a>BP 截包测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123548.png" alt="image-20201217123544981"></p>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <br>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-16T11:05:29+08:00"
-              content="2020-12-16">
-          12-16
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div>听说打赏我的人，都进了福布斯排行榜。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Charseki 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Charseki 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/16/Kali-Linux-%E5%AE%89%E8%A3%85JDK8/" itemprop="url">
-            <span itemprop="name">Kali Linux 安装JDK8</span>
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/CharsekiC">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
           </a>
-      </div>
+        </div>
 
-    </header>
-  </article>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.cnblogs.com/chenshengkai">
+            <span class="icon">
+              <i class="fas fa-blog"></i>
+            </span>
 
+            <span class="label">CNBlogs</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201207093441.png">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Proxy/" rel="tag"><i class="fa fa-tags"></i> Proxy</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/16/Kali-Linux-2020-4-%E6%9B%BF%E6%8D%A2BurpSuite-Pro-1-7-37/" rel="prev" title="Kali Linux 2020.4 替换BurpSuite Pro 1.7.37">
+      <i class="fa fa-chevron-left"></i> Kali Linux 2020.4 替换BurpSuite Pro 1.7.37
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -289,6 +461,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kali-Linux-Firefox-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Kali Linux Firefox 代理设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.0.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.0.2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BP-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.0.3.</span> <span class="nav-text">BP 代理设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FoxyProxy-%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.0.4.</span> <span class="nav-text">FoxyProxy 设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BP-%E6%88%AA%E5%8C%85%E6%B5%8B%E8%AF%95"><span class="nav-number">1.0.5.</span> <span class="nav-text">BP 截包测试</span></a></li></ol></li></ol></li></ol></div>
       </div>
       
       <!--/noindex-->

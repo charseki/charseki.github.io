@@ -6,7 +6,7 @@
   <link href="https://www.chenshengkai.com/atom.xml" rel="self"/>
   
   <link href="https://www.chenshengkai.com/"/>
-  <updated>2020-12-16T07:19:27.151Z</updated>
+  <updated>2020-12-17T04:38:45.385Z</updated>
   <id>https://www.chenshengkai.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kali Linux Firefox 代理设置</title>
+    <link href="https://www.chenshengkai.com/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/"/>
+    <id>https://www.chenshengkai.com/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/</id>
+    <published>2020-12-17T04:16:46.000Z</published>
+    <updated>2020-12-17T04:38:45.385Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kali-Linux-Firefox-代理设置"><a href="#Kali-Linux-Firefox-代理设置" class="headerlink" title="Kali Linux Firefox 代理设置"></a>Kali Linux Firefox 代理设置</h1><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>在浏览器上设置代理地址，配合BurpSuite可以进行截包/改包/发包等操作，这里用Firefox浏览器做示例。</p><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>通过Firefox自带的一款插件：FoxyProxy 实现。</p><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122535.png" alt="image-20201217122531481"></p><p>安装完后，可以在菜单栏找到它。</p><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217122645.png" alt="image-20201217122639796"></p><h3 id="BP-代理设置"><a href="#BP-代理设置" class="headerlink" title="BP 代理设置"></a>BP 代理设置</h3><p>在BurpSuite上添加本地的8888端口为代理服务器。</p><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123007.png" alt="image-20201217123003906"></p><h3 id="FoxyProxy-设置"><a href="#FoxyProxy-设置" class="headerlink" title="FoxyProxy 设置"></a>FoxyProxy 设置</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123233.png" alt="image-20201217123227702"></p><p>开启burpsuite这个代理选项。</p><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123343.png" alt="image-20201217123339643"></p><h3 id="BP-截包测试"><a href="#BP-截包测试" class="headerlink" title="BP 截包测试"></a>BP 截包测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201217123548.png" alt="image-20201217123544981"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Kali-Linux-Firefox-代理设置&quot;&gt;&lt;a href=&quot;#Kali-Linux-Firefox-代理设置&quot; class=&quot;headerlink&quot; title=&quot;Kali Linux Firefox 代理设置&quot;&gt;&lt;/a&gt;Kali Linux Firefo</summary>
+      
+    
+    
+    
+    <category term="Kali Linux" scheme="https://www.chenshengkai.com/categories/Kali-Linux/"/>
+    
+    
+    <category term="Proxy" scheme="https://www.chenshengkai.com/tags/Proxy/"/>
+    
+  </entry>
   
   <entry>
     <title>Kali Linux 2020.4 替换BurpSuite Pro 1.7.37</title>
