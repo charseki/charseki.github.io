@@ -189,31 +189,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LNMP环境连接Mysql测试</title>
-    <url>/2020/12/06/LNMP%E7%8E%AF%E5%A2%83%E8%BF%9E%E6%8E%A5Mysql%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h1 id="005-LNMP环境连接Mysql测试"><a href="#005-LNMP环境连接Mysql测试" class="headerlink" title="005-LNMP环境连接Mysql测试"></a>005-LNMP环境连接Mysql测试</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a><strong>背景介绍</strong></h2><p>用户通过浏览器访问Nginx -&gt; html下的mysql.php文件，去连接Mysql数据库的一个测试</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><h3 id="LNMP服务检查"><a href="#LNMP服务检查" class="headerlink" title="LNMP服务检查"></a>LNMP服务检查</h3><p>检查确保Linux、nginx、php-fpm、mysql的服务都是正常启动的</p>
-<h3 id="Mysql测试代码编写"><a href="#Mysql测试代码编写" class="headerlink" title="Mysql测试代码编写"></a>Mysql测试代码编写</h3><p>这里要说明一下，PHP5和PHP7连接Mysql的区别还是挺大的，不要翻车了。</p>
-<p>PHP5使用mysql_connect函数来进行Mysql数据库的连接操作。</p>
-<p>PHP7已经摒弃了这个函数，改成了mysqli_connect()函数，面向对象的写法：</p>
-<p>变量名 = new mysqli(主机地址，用户名，密码，数据库名)；</p>
-<p>下面是测试代码mysql.php</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$servername</span> = <span class="string">&quot;192.168.0.99&quot;</span>;</span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;root&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> mysqli(<span class="variable">$servername</span>, <span class="variable">$username</span>, <span class="variable">$password</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$conn</span>-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;连接失败: &quot;</span> . <span class="variable">$conn</span>-&gt;connect_error);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;连接成功&quot;</span>;</span><br><span class="line">   phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-<h3 id="Mysql连接结果验证"><a href="#Mysql连接结果验证" class="headerlink" title="Mysql连接结果验证"></a>Mysql连接结果验证</h3><p>1.连接成功的界面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225701.png"></p>
-<p>2.连接失败的界面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225734.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LNMP之PHP环境搭建</title>
     <url>/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a href="https://www.php.net/">https://www.php.net/</a></p>
@@ -246,6 +221,31 @@
 
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LNMP环境连接Mysql测试</title>
+    <url>/2020/12/06/LNMP%E7%8E%AF%E5%A2%83%E8%BF%9E%E6%8E%A5Mysql%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="005-LNMP环境连接Mysql测试"><a href="#005-LNMP环境连接Mysql测试" class="headerlink" title="005-LNMP环境连接Mysql测试"></a>005-LNMP环境连接Mysql测试</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a><strong>背景介绍</strong></h2><p>用户通过浏览器访问Nginx -&gt; html下的mysql.php文件，去连接Mysql数据库的一个测试</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><h3 id="LNMP服务检查"><a href="#LNMP服务检查" class="headerlink" title="LNMP服务检查"></a>LNMP服务检查</h3><p>检查确保Linux、nginx、php-fpm、mysql的服务都是正常启动的</p>
+<h3 id="Mysql测试代码编写"><a href="#Mysql测试代码编写" class="headerlink" title="Mysql测试代码编写"></a>Mysql测试代码编写</h3><p>这里要说明一下，PHP5和PHP7连接Mysql的区别还是挺大的，不要翻车了。</p>
+<p>PHP5使用mysql_connect函数来进行Mysql数据库的连接操作。</p>
+<p>PHP7已经摒弃了这个函数，改成了mysqli_connect()函数，面向对象的写法：</p>
+<p>变量名 = new mysqli(主机地址，用户名，密码，数据库名)；</p>
+<p>下面是测试代码mysql.php</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$servername</span> = <span class="string">&quot;192.168.0.99&quot;</span>;</span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;root&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> mysqli(<span class="variable">$servername</span>, <span class="variable">$username</span>, <span class="variable">$password</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$conn</span>-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;连接失败: &quot;</span> . <span class="variable">$conn</span>-&gt;connect_error);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;连接成功&quot;</span>;</span><br><span class="line">   phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="Mysql连接结果验证"><a href="#Mysql连接结果验证" class="headerlink" title="Mysql连接结果验证"></a>Mysql连接结果验证</h3><p>1.连接成功的界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225701.png"></p>
+<p>2.连接失败的界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206225734.png"></p>
 ]]></content>
       <categories>
         <category>Linux运维</category>
