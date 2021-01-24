@@ -22,25 +22,29 @@
     var CONFIG = {"hostname":"www.chenshengkai.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="003-LNMP之PHP环境搭建正文php官网：https:&#x2F;&#x2F;www.php.net&#x2F; 搜狐镜像源：http:&#x2F;&#x2F;mirrors.sohu.com&#x2F; （推荐，国内源下载速度嗖嗖的） php编译安装前解决依赖包12yum -y install epel-releaseyum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel op">
+  <meta name="description" content="Testlink安装配置 软件版本介绍xmapp版本：xampp-linux-x64-7.2.0-0-installer.run testlink版本：testlink-1.9.18.tar.gz Testlink安装      Maximum Session Idle Time before Timeout 24 minutes and 0 seconds - (Short. Consider">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LNMP之PHP环境搭建">
-<meta property="og:url" content="https://www.chenshengkai.com/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="TestLink部署过程">
+<meta property="og:url" content="https://www.chenshengkai.com/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Charseki&#39;s Blog">
-<meta property="og:description" content="003-LNMP之PHP环境搭建正文php官网：https:&#x2F;&#x2F;www.php.net&#x2F; 搜狐镜像源：http:&#x2F;&#x2F;mirrors.sohu.com&#x2F; （推荐，国内源下载速度嗖嗖的） php编译安装前解决依赖包12yum -y install epel-releaseyum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel op">
+<meta property="og:description" content="Testlink安装配置 软件版本介绍xmapp版本：xampp-linux-x64-7.2.0-0-installer.run testlink版本：testlink-1.9.18.tar.gz Testlink安装      Maximum Session Idle Time before Timeout 24 minutes and 0 seconds - (Short. Consider">
 <meta property="og:locale">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png">
-<meta property="article:published_time" content="2020-12-06T14:08:50.000Z">
-<meta property="article:modified_time" content="2020-12-06T14:52:25.583Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115163744.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115170447.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115170824.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115171719.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115172833.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210123180657.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115221502.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115222034.png">
+<meta property="article:published_time" content="2021-01-23T14:52:42.000Z">
+<meta property="article:modified_time" content="2021-01-24T06:11:08.916Z">
 <meta property="article:author" content="Charseki">
-<meta property="article:tag" content="LNMP">
+<meta property="article:tag" content="TestLink">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115163744.png">
 
-<link rel="canonical" href="https://www.chenshengkai.com/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="https://www.chenshengkai.com/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -55,7 +59,7 @@
 
   
 
-  <title>LNMP之PHP环境搭建 | Charseki's Blog</title>
+  <title>TestLink部署过程 | Charseki's Blog</title>
   
 
 
@@ -207,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://www.chenshengkai.com/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="https://www.chenshengkai.com/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -220,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LNMP之PHP环境搭建
+          TestLink部署过程
         </h1>
 
         <div class="post-meta">
@@ -229,17 +233,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-06 22:08:50 / 修改时间：22:52:25" itemprop="dateCreated datePublished" datetime="2020-12-06T22:08:50+08:00">2020-12-06</time>
+              <time title="创建时间：2021-01-23 22:52:42" itemprop="dateCreated datePublished" datetime="2021-01-23T22:52:42+08:00">2021-01-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-24 14:11:08" itemprop="dateModified" datetime="2021-01-24T14:11:08+08:00">2021-01-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">Linux运维</span></a>
+                  <a href="/categories/Test-Utils/" itemprop="url" rel="index"><span itemprop="name">Test Utils</span></a>
                 </span>
             </span>
 
@@ -255,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/06/LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -266,14 +276,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -285,36 +295,130 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="003-LNMP之PHP环境搭建"><a href="#003-LNMP之PHP环境搭建" class="headerlink" title="003-LNMP之PHP环境搭建"></a>003-LNMP之PHP环境搭建</h1><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>php官网：<a target="_blank" rel="noopener" href="https://www.php.net/">https://www.php.net/</a></p>
-<p>搜狐镜像源：<a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">http://mirrors.sohu.com/</a> （推荐，国内源下载速度嗖嗖的）</p>
-<h3 id="php编译安装前解决依赖包"><a href="#php编译安装前解决依赖包" class="headerlink" title="php编译安装前解决依赖包"></a>php编译安装前解决依赖包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install gcc gcc-c++ make pcre pcre-devel zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel openldap openldap-devel libmcrypt libmcrypt-devel sqlite sqlite-devel oniguruma-devel oniguruma</span><br></pre></td></tr></table></figure>
+        <h1 id="Testlink安装配置"><a href="#Testlink安装配置" class="headerlink" title="Testlink安装配置"></a>Testlink安装配置</h1><hr>
+<h3 id="软件版本介绍"><a href="#软件版本介绍" class="headerlink" title="软件版本介绍"></a>软件版本介绍</h3><p>xmapp版本：xampp-linux-x64-7.2.0-0-installer.run</p>
+<p>testlink版本：testlink-1.9.18.tar.gz</p>
+<h3 id="Testlink安装"><a href="#Testlink安装" class="headerlink" title="Testlink安装"></a>Testlink安装</h3><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115163744.png" alt="image-20210115163735405" style="zoom:67%;" align="center"/>
 
-<h3 id="源码编译安装php"><a href="#源码编译安装php" class="headerlink" title="源码编译安装php"></a>源码编译安装php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php --with-config-file-path=/usr/<span class="built_in">local</span>/php/etc --enable-ctype --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-fpm</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 在/usr/local/php/etc目录下，默认是没有php.ini这个配置文件的，需要拷贝一个过去</span></span><br><span class="line"><span class="comment"># 拷贝的文件路径/usr/local/src/php-7.4.7</span></span><br><span class="line">cp /usr/<span class="built_in">local</span>/src/php-7.4.7/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Maximum Session Idle Time before Timeout</th>
+<th align="left">24 minutes and 0 seconds - (Short. Consider to extend.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Checking max. execution time (Parameter max_execution_time)</td>
+<td align="left">30 seconds - We suggest 120 seconds in order to manage hundred of test cases (edit php.ini)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>打开php.ini文件修改以下两个值</p>
+</li>
+<li><p>vim /opt/lampp/etc/php.ini</p>
+</li>
+<li><p>session.gc_maxlifetime = 2880</p>
+</li>
+<li><p>max_execution_time = 180</p>
+</li>
+</ul>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Checking Postgres Database</th>
+<th>Failed! Postgres Database cannot be used.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Checking MySQL Database</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>Checking MSSQL Database</td>
+<td>Failed! MSSQL Database cannot be used.</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Web and PHP这一栏</li>
+<li>MySQL显示OK就可以，其他可以错误可以忽略</li>
+<li>Read/write permissions这一栏可能会提醒<ul>
+<li>Checking if /var/testlink/logs/ directory exists [S] Failed!</li>
+<li>Checking if /var/testlink/upload_area/ directory exists [S] Failed!</li>
+</ul>
+</li>
+</ul>
+<hr>
+<a id="more"></a>
 
-<a id="more"></a>he
-<h3 id="php编译安装说明"><a href="#php编译安装说明" class="headerlink" title="php编译安装说明"></a>php编译安装说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--prefix 指定php的安装目录</span><br><span class="line">--with-config-file-path 指定php的配置文件位置</span><br><span class="line">--with-mysql 让php可以操作mysql</span><br><span class="line">--enable-fpm 主要是nginx要来调用php语言使得php-fpm</span><br></pre></td></tr></table></figure>
+<p>testlink需要配置的地方不多，此处简单介绍几个配置点。</p>
+<p>打开config_inc.php,修改配置参数.如下:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）将<span class="variable">$tlCfg</span>-&gt;config_check_warning_mode = FILE<span class="string">&#x27;;改成   $tlCfg-&gt;config_check_warning_mode=&#x27;</span>SILENT<span class="string">&#x27;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2）将$tlCfg-&gt;log_path= &#x27;</span>/<span class="keyword">var</span>/testlink/logs/<span class="string">&#x27;改成  $tlCfg-&gt;log_path=&#x27;</span>/opt/lampp/htdocs/testlink/logs/<span class="string">&#x27;  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3）将$g_repositoryPath = &#x27;</span>/<span class="keyword">var</span>/testlink/upload_area/<span class="string">&#x27;;改成  $g_repositoryPath=&#x27;</span>/opt/lampp/htdocs/testlink/upload_area/<span class="string">&#x27;; </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4）将$tlCfg-&gt;default_language = &#x27;</span>en_G<span class="string">B&#x27;;改成  $tlCfg-&gt;default_language= &#x27;</span> zh_CN<span class="string">&#x27;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">5)打开config.inc.php，查找$tlCfg-&gt;import_file_max_size_bytes，将后面的数据‘409600’改为期望的数据值。（建议修改为2M，即2097152） /*更改导入测试套件和测试用例文件大小*/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6)打开config.inc.php，找到$tlCfg-&gt;user_self_signup，将其后true改为false，在登录界面便取消了NewUser链接。 /*禁止新用户注册*/</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="启动php-fpm"><a href="#启动php-fpm" class="headerlink" title="启动php-fpm"></a>启动php-fpm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/sbin/:/usr/<span class="built_in">local</span>/php/bin/</span><br><span class="line"><span class="comment"># 检查配置文件</span></span><br><span class="line">php-fpm -t</span><br><span class="line"><span class="comment"># 使用默认配置文件</span></span><br><span class="line">mv /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"><span class="comment"># 查看php-fpm的listen配置</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>接下去是数据库这边的配置过程</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115170447.png" alt="image-20210115170443157" style="zoom:67%;" />
 
-<h3 id="验证php-fpm的启动"><a href="#验证php-fpm的启动" class="headerlink" title="验证php-fpm的启动"></a>验证php-fpm的启动</h3><p>1.进程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221352.png"></p>
-<p>2.端口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221427.png"></p>
-<p>3.日志</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221506.png"></p>
-<h3 id="使用systemctl管理php-fpm"><a href="#使用systemctl管理php-fpm" class="headerlink" title="使用systemctl管理php-fpm"></a>使用systemctl管理php-fpm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建配置文件的路径</span></span><br><span class="line">vi /usr/lib/systemd/system/php-fpm.service</span><br><span class="line"><span class="comment"># 配置内容：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=php-fpm</span><br><span class="line">After=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/php/sbin/php-fpm</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>安装完xampp默认Mysql用户名为root，密码为空，所以需要修改后再来这个页面填写数据库的资料。</p>
+<p>登录到后台数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/lampp/bin/mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
-<h3 id="nginx-php-fpm结合的配置"><a href="#nginx-php-fpm结合的配置" class="headerlink" title="nginx+php-fpm结合的配置"></a>nginx+php-fpm结合的配置</h3><p>测试页代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>提示Enter password：直接回车登录即可。</p>
+<p>进入数据后，重置数据库密码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;	//查看数据库</span><br><span class="line"><span class="keyword">use</span> mysql;	//选择mysql数据库</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">&#x27;xxxxxx&#x27;</span>) <span class="keyword">WHERE</span> <span class="keyword">user</span>=<span class="string">&#x27;root&#x27;</span>;		//重置root密码</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;		//重载配置</span><br></pre></td></tr></table></figure>
 
-<p>nginx默认配置无法处理php程序，只会下载，需要改配置文件nginx.conf</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">root</span>           html;</span><br><span class="line">            <span class="attribute">fastcgi_pass</span>   <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">            <span class="attribute">fastcgi_index</span>  index.php;</span><br><span class="line">            <span class="comment"># 修改默认的/scripts为$document_root,去root-&gt;html下面找页面</span></span><br><span class="line">            <span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            <span class="attribute">include</span>        fastcgi_params;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115170824.png" alt="image-20210115170820438" style="zoom:100%;" align="center"/>
 
-<h3 id="页面test-php访问测试"><a href="#页面test-php访问测试" class="headerlink" title="页面test.php访问测试"></a>页面test.php访问测试</h3><p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206221756.png"></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><h3 id="运行systemctl-start-php-fpm报错"><a href="#运行systemctl-start-php-fpm报错" class="headerlink" title="运行systemctl start php-fpm报错"></a>运行systemctl start php-fpm报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[30-Jun-2020 18:34:23] WARNING: Nothing matches the include pattern <span class="string">&#x27;/usr/local/php/etc/php-fpm.d/*.conf&#x27;</span> from /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf at line 125.</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: No pool defined. at least one pool section must be specified <span class="keyword">in</span> config file</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: failed to post process the configuration</span><br><span class="line">[30-Jun-2020 18:34:23] ERROR: FPM initialization failed</span><br></pre></td></tr></table></figure>
+<p>既然mysql的root用户密码已经修改，那么phpmyadmin中的对应密码配置也要修改，找到配置文件：</p>
+<p>/opt/lampp/phpmyadmin/config.inc.php</p>
+<p>找到如下代码修改为：</p>
+<img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115171719.png" alt="image-20210115171708213" align="center" />
 
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc/php-fpm.d/</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">[30-Jun-2020 18:35:29] NOTICE: configuration file /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf <span class="built_in">test</span> is successful</span><br><span class="line">[root@localhost php-fpm.d]systemctl start php-fpm</span><br><span class="line">Starting php-fpm  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>到最后一步突然报错了。。。</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115172833.png" alt="image-20210115172724704" style="zoom:67%;" align="center" />
 
+<p>解决办法：在testlink目录下创建config_db.inc.php文件，并拷贝上面提示的信息到php里就可以啦</p>
+<p>vi config_db.inc.php </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// Automatically Generated by TestLink Installer - Fri, 15 Jan 21 10:22:28 +0100</span></span><br><span class="line">define(<span class="string">&#x27;DB_TYPE&#x27;</span>, <span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line">define(<span class="string">&#x27;DB_USER&#x27;</span>, <span class="string">&#x27;testlink&#x27;</span>);</span><br><span class="line">define(<span class="string">&#x27;DB_PASS&#x27;</span>, <span class="string">&#x27;waftest&#x27;</span>);</span><br><span class="line">define(<span class="string">&#x27;DB_HOST&#x27;</span>, <span class="string">&#x27;localhost&#x27;</span>);</span><br><span class="line">define(<span class="string">&#x27;DB_NAME&#x27;</span>, <span class="string">&#x27;testlink&#x27;</span>);</span><br><span class="line">define(<span class="string">&#x27;DB_TABLE_PREFIX&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>保持该文件的权限/属组/属主跟其他配置文件一致即可。</p>
+<hr>
+<p><strong>成功登录的页面如下：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210123180657.png" alt="image-20210123180653924"></p>
+<h3 id="安装问题解决"><a href="#安装问题解决" class="headerlink" title="安装问题解决"></a>安装问题解决</h3><h5 id="（1）phpmyadmin拒绝连接的问题"><a href="#（1）phpmyadmin拒绝连接的问题" class="headerlink" title="（1）phpmyadmin拒绝连接的问题"></a>（1）phpmyadmin拒绝连接的问题</h5><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115221502.png" alt="image-20210115221443661" style="zoom:80%;" align="center" />
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# vim /opt/lampp/etc/extra/httpd-xampp.conf</span><br></pre></td></tr></table></figure>
+
+<p>找到如下代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory &quot;/opt/lampp/phpmyadmin&quot;&gt;</span><br><span class="line">    AllowOverride AuthConfig Limit</span><br><span class="line">    Require local</span><br><span class="line">    ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将它改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory &quot;/opt/lampp/phpmyadmin&quot;&gt;</span><br><span class="line">    AllowOverride AuthConfig Limit</span><br><span class="line">    Allow from all</span><br><span class="line">    Require all granted</span><br><span class="line">    ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="（2）mysql拒绝连接的问题"><a href="#（2）mysql拒绝连接的问题" class="headerlink" title="（2）mysql拒绝连接的问题"></a>（2）mysql拒绝连接的问题</h5><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115222034.png" alt="image-20210115222031604" style="zoom:67%;" align="center" />
+
+<p><strong>先修改了root访问权限</strong></p>
+<p>grant all on <em>.</em> to root@’%’ identified by ‘填你的密码’ with grant option;</p>
+<p>刷新权限</p>
+<p>flush privileges;</p>
+<p>然后重启Mysql</p>
+<p>还是无法用navicat连接</p>
+<p><strong>然后以为是防火墙问题</strong>，结果为3306端口开放了防火墙后，仍然无法连接</p>
+<p>然后就是修改etc/my.cnf，以为没有设置bind-address = 0.0.0.0</p>
+<p>结果发现还是无法连接</p>
+<p>最后查看mysql进程，确实是已经启动成功了的，难道是mysql 没有监听到3306端口？</p>
+<p><strong>查看mysql进程</strong></p>
+<p>ps -ef |grep mysql </p>
+<p>然后又查看了一下<strong>3306端口监听情况</strong></p>
+<p>netstat -antp| grep 3306</p>
+<p>果然啥都没有</p>
+<p>知道这个问题了解决起来就方便了</p>
+<p>百度了一下，找到了答案，说的是mysql配置文件my.conf中，使用了 skip-networking，可以看到这个选项的的作用是不监听端口，同主机的用户通过 sockets 进行链接。外部主机由于没有监听端口，将无法连接。</p>
+<p>所以，注释掉skip-networking</p>
+<p>然后用Navicat连接，总算连接上了</p>
 
       
     </div>
@@ -406,7 +510,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/LNMP/" rel="tag"><i class="fa fa-tags"></i> LNMP</a>
+              <a href="/tags/TestLink/" rel="tag"><i class="fa fa-tags"></i> TestLink</a>
           </div>
 
         
@@ -415,12 +519,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/06/LNMP%E4%B9%8BNginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" rel="prev" title="LNMP之Nginx服务器搭建">
-      <i class="fa fa-chevron-left"></i> LNMP之Nginx服务器搭建
+    <a href="/2020/12/17/Kali-Linux-%E8%AE%BE%E7%BD%AEFirefox%E4%BB%A3%E7%90%86/" rel="prev" title="Kali Linux Firefox 代理设置">
+      <i class="fa fa-chevron-left"></i> Kali Linux Firefox 代理设置
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/06/LNMP%E4%B9%8BMysql%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" rel="next" title="LNMP之Mysql源码编译安装">
-      LNMP之Mysql源码编译安装 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/24/TestLink%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/" rel="next" title="TestLink功能概述">
+      TestLink功能概述 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -481,7 +585,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#003-LNMP%E4%B9%8BPHP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">003-LNMP之PHP环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E5%89%8D%E8%A7%A3%E5%86%B3%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">1.1.1.</span> <span class="nav-text">php编译安装前解决依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85php"><span class="nav-number">1.1.2.</span> <span class="nav-text">源码编译安装php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.3.</span> <span class="nav-text">php编译安装说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8php-fpm"><span class="nav-number">1.1.4.</span> <span class="nav-text">启动php-fpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81php-fpm%E7%9A%84%E5%90%AF%E5%8A%A8"><span class="nav-number">1.1.5.</span> <span class="nav-text">验证php-fpm的启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8systemctl%E7%AE%A1%E7%90%86php-fpm"><span class="nav-number">1.1.6.</span> <span class="nav-text">使用systemctl管理php-fpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx-php-fpm%E7%BB%93%E5%90%88%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.7.</span> <span class="nav-text">nginx+php-fpm结合的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2test-php%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95"><span class="nav-number">1.1.8.</span> <span class="nav-text">页面test.php访问测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Csystemctl-start-php-fpm%E6%8A%A5%E9%94%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">运行systemctl start php-fpm报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Testlink%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Testlink安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.0.1.</span> <span class="nav-text">软件版本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testlink%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.2.</span> <span class="nav-text">Testlink安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="nav-number">1.0.3.</span> <span class="nav-text">安装问题解决</span></a></li></ol></li></ol></li></ol></div>
       </div>
       
       <!--/noindex-->
