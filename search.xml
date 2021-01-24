@@ -255,37 +255,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux开机模式和网络设置</title>
-    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
-
-<p>修改完之后，reboot一下就能看到效果了。</p>
-<a id="more"></a>
-<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
-<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
-<p>然后去修改这个网卡配置的信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
-<p>修改内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
-<p> 然后route-n查看一下路由信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
-<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
-]]></content>
-      <categories>
-        <category>Linux运维</category>
-      </categories>
-      <tags>
-        <tag>LNMP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TestLink部署过程</title>
     <url>/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="Testlink安装配置"><a href="#Testlink安装配置" class="headerlink" title="Testlink安装配置"></a>Testlink安装配置</h1><hr>
@@ -418,6 +387,37 @@
       </categories>
       <tags>
         <tag>TestLink</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux开机模式和网络设置</title>
+    <url>/2020/12/06/Linux%E5%BC%80%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="001-Linux开机模式和网络设置"><a href="#001-Linux开机模式和网络设置" class="headerlink" title="001-Linux开机模式和网络设置"></a>001-Linux开机模式和网络设置</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>准备3台服务器（虚拟机环境），一台打算当做Web服务器（Nginx），另外2台备用。考虑到对物理机性能的占用，故采用命令行启动的模式。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="修改开机模式为命令模式"><a href="#修改开机模式为命令模式" class="headerlink" title="修改开机模式为命令模式"></a><strong>修改开机模式为命令模式</strong></h3><p>3台服务器分别取名为server001、server002、server003，都安装Centos7后，修改配置文件，开机到命令行模式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/inittab  <span class="comment">#修改配置文件的路径 </span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214018.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">multi-user.target  <span class="comment">#指的就是命令模式</span></span><br><span class="line">graphical.target  <span class="comment">#指的就是GUI模式</span></span><br></pre></td></tr></table></figure>
+
+<p>修改完之后，reboot一下就能看到效果了。</p>
+<a id="more"></a>
+<h3 id="在命令模式下设置网络配置"><a href="#在命令模式下设置网络配置" class="headerlink" title="在命令模式下设置网络配置"></a><strong>在命令模式下设置网络配置</strong></h3><p>首先用ifconfig查看一下自己网卡的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214206.png"></p>
+<p>可以看到我的网卡名称为：eno16777736，另外一个是回环地址的网卡，不用去管。</p>
+<p>然后去修改这个网卡配置的信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214249.png"></p>
+<p>修改内容如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214322.png"></p>
+<p> 然后route-n查看一下路由信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214500.png"></p>
+<p> 同样方法设置server001和server003,然后检查一下3台服务器的网络连接就行了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201206214538.png"></p>
+]]></content>
+      <categories>
+        <category>Linux运维</category>
+      </categories>
+      <tags>
+        <tag>LNMP</tag>
       </tags>
   </entry>
   <entry>
