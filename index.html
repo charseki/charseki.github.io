@@ -221,10 +221,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-24 12:11:42 / 修改时间：14:11:28" itemprop="dateCreated datePublished" datetime="2021-01-24T12:11:42+08:00">2021-01-24</time>
+              <time title="创建时间：2021-01-24 12:11:42" itemprop="dateCreated datePublished" datetime="2021-01-24T12:11:42+08:00">2021-01-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-25 11:02:14" itemprop="dateModified" datetime="2021-01-25T11:02:14+08:00">2021-01-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -287,15 +293,6 @@
 <li>测试用例的执行</li>
 <li>大量测试数据的度量和统计功能</li>
 </ul>
-<h5 id="4、测试管理流程"><a href="#4、测试管理流程" class="headerlink" title="4、测试管理流程"></a><strong>4、测试管理流程</strong></h5><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210118155422.png" alt="1111副本" style="zoom:60%;" align="center"/>
-
-
-
-
-
-<h3 id="测试项目管理"><a href="#测试项目管理" class="headerlink" title="测试项目管理"></a>测试项目管理</h3><hr>
-<p>TestLink可以<strong>对多个项目进行管理</strong>，而且各个测试项目之间是独立的，不能分享数据，但只有admin级的用户可以设置项目。admin进行项目设置后，测试人员就可以进行测试需求、测试用例、测试计划等相关管理工作了。</p>
-<p><em>该功能由admin维护，这里不做过多介绍。</em></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/24/TestLink%E5%8A%9F%E8%83%BD%E6%A6%82%E8%BF%B0/#more" rel="contents">
@@ -359,7 +356,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-24 14:11:08" itemprop="dateModified" datetime="2021-01-24T14:11:08+08:00">2021-01-24</time>
+                <time title="修改时间：2021-01-25 11:03:09" itemprop="dateModified" datetime="2021-01-25T11:03:09+08:00">2021-01-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -414,57 +411,6 @@
 <h3 id="软件版本介绍"><a href="#软件版本介绍" class="headerlink" title="软件版本介绍"></a>软件版本介绍</h3><p>xmapp版本：xampp-linux-x64-7.2.0-0-installer.run</p>
 <p>testlink版本：testlink-1.9.18.tar.gz</p>
 <h3 id="Testlink安装"><a href="#Testlink安装" class="headerlink" title="Testlink安装"></a>Testlink安装</h3><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210115163744.png" alt="image-20210115163735405" style="zoom:67%;" align="center"/>
-
-<hr>
-<table>
-<thead>
-<tr>
-<th>Maximum Session Idle Time before Timeout</th>
-<th align="left">24 minutes and 0 seconds - (Short. Consider to extend.)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Checking max. execution time (Parameter max_execution_time)</td>
-<td align="left">30 seconds - We suggest 120 seconds in order to manage hundred of test cases (edit php.ini)</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>打开php.ini文件修改以下两个值</p>
-</li>
-<li><p>vim /opt/lampp/etc/php.ini</p>
-</li>
-<li><p>session.gc_maxlifetime = 2880</p>
-</li>
-<li><p>max_execution_time = 180</p>
-</li>
-</ul>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Checking Postgres Database</th>
-<th>Failed! Postgres Database cannot be used.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Checking MySQL Database</td>
-<td>OK</td>
-</tr>
-<tr>
-<td>Checking MSSQL Database</td>
-<td>Failed! MSSQL Database cannot be used.</td>
-</tr>
-</tbody></table>
-<ul>
-<li>Web and PHP这一栏</li>
-<li>MySQL显示OK就可以，其他可以错误可以忽略</li>
-<li>Read/write permissions这一栏可能会提醒<ul>
-<li>Checking if /var/testlink/logs/ directory exists [S] Failed!</li>
-<li>Checking if /var/testlink/upload_area/ directory exists [S] Failed!</li>
-</ul>
-</li>
-</ul>
-<hr>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/23/Testlink%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B/#more" rel="contents">
