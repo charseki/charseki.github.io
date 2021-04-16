@@ -1286,7 +1286,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a808a7;
+  background: #d965c4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2262,7 +2262,7 @@ pre .javascript .function {
   color: #1890ff;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #d036ba;
+  color: #4f53f4;
 }
 a,
 span.exturl {
@@ -2322,13 +2322,6 @@ pre {
 code,
 pre {
   border: 1px solid #d6d6d6;
-}
-body {
-  background: url("https://cdn.jsdelivr.net/gh/charseki1994/images/img/20201214092814.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-size: cover;
 }
 .content-wrap {
   opacity: 0.9;
