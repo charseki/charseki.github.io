@@ -6,7 +6,7 @@
   <link href="https://www.chenshengkai.com/atom.xml" rel="self"/>
   
   <link href="https://www.chenshengkai.com/"/>
-  <updated>2020-12-06T13:33:40.519Z</updated>
+  <updated>2021-07-08T09:28:41.075Z</updated>
   <id>https://www.chenshengkai.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>upload-labs 通关打卡</title>
+    <link href="https://www.chenshengkai.com/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/"/>
+    <id>https://www.chenshengkai.com/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-07-07T16:00:00.000Z</published>
+    <updated>2021-07-08T09:28:41.075Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。</p><a id="more"></a><h2 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h2><p>源码：</p><div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708164747.png" </div><p>通过分析可知，上传校验是在前端js做的，因此可以：</p><p>1、禁用js上传</p><p>谷歌浏览器打开，F12然后F1，拉到Debugger区域。</p><div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172129.png" </div><p>2、bp截包修改后缀名上传</p><div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172441.png" </div><p>执行成功：</p><div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172754.png" </div>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;&gt;&lt;/a&gt;背景介绍&lt;/h1&gt;&lt;p&gt;upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="渗透测试" scheme="https://www.chenshengkai.com/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="upload bypass" scheme="https://www.chenshengkai.com/tags/upload-bypass/"/>
+    
+  </entry>
   
   <entry>
     <title>Encrypt_Demo</title>

@@ -22,20 +22,25 @@
     var CONFIG = {"hostname":"www.chenshengkai.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这篇文章已被加密,请输入密码后查看！">
+  <meta name="description" content="背景介绍upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Encrypt_Demo">
-<meta property="og:url" content="https://www.chenshengkai.com/2020/11/29/Encrypt_Demo/index.html">
+<meta property="og:title" content="upload-labs 通关打卡">
+<meta property="og:url" content="https://www.chenshengkai.com/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Charseki&#39;s Blog">
-<meta property="og:description" content="这篇文章已被加密,请输入密码后查看！">
+<meta property="og:description" content="背景介绍upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-11-29T01:25:46.057Z">
-<meta property="article:modified_time" content="2020-12-06T13:33:40.519Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708164747.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172441.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172754.png">
+<meta property="article:published_time" content="2021-07-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-08T09:28:41.075Z">
 <meta property="article:author" content="Charseki">
-<meta property="article:tag" content="Encrypted">
+<meta property="article:tag" content="upload bypass">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708164747.png">
 
-<link rel="canonical" href="https://www.chenshengkai.com/2020/11/29/Encrypt_Demo/">
+<link rel="canonical" href="https://www.chenshengkai.com/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/">
 
 
 <script id="page-configurations">
@@ -50,7 +55,7 @@
 
   
 
-  <title>Encrypt_Demo | Charseki's Blog</title>
+  <title>upload-labs 通关打卡 | Charseki's Blog</title>
   
 
 
@@ -202,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://www.chenshengkai.com/2020/11/29/Encrypt_Demo/">
+    <link itemprop="mainEntityOfPage" href="https://www.chenshengkai.com/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -215,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Encrypt_Demo
+          upload-labs 通关打卡
         </h1>
 
         <div class="post-meta">
@@ -224,16 +229,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-11-29 09:25:46" itemprop="dateCreated datePublished" datetime="2020-11-29T09:25:46+08:00">2020-11-29</time>
+              <time title="创建时间：2021-07-08 00:00:00 / 修改时间：17:28:41" itemprop="dateCreated datePublished" datetime="2021-07-08T00:00:00+08:00">2021-07-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-06 21:33:40" itemprop="dateModified" datetime="2020-12-06T21:33:40+08:00">2020-12-06</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">渗透测试</span></a>
+                </span>
+            </span>
 
           
               <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
@@ -247,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/29/Encrypt_Demo/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/29/Encrypt_Demo/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -258,7 +266,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>876</span>
+              <span>107</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -277,7 +285,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="hexo-blog-encrypt" data-wpm="密码错误,请重新输入！" data-whm="文章不能被校验,不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好,请在下方输入密码！" /><label>您好,请在下方输入密码！</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="19c06c3d70add7aa0c74b425e5af2935f9176dfb0934fb3d9d1c5ead7337e7cb">f0e260aa95ce3ceffcb2b4f9bd98f3f35189ff6848982a804d96cce2bf6aba109b6e9673bb192ee04d918b10de44b772208572ab4bd84e5baf09905fa8d8eec1229b9bd21eb165cc2371b188aec6d6e4940da0597c62a830892a92f05db74a9d1537e7db0c82eba8f1ce1e769bd062aa65a5221b524fbed9d65ded3b659c363d9a30130d01be9f5c3891bee6972c5d9614d13320b7212dc18691a8decc461a4381e776f1523ebba2aaf429e5c851a1e3962014f99294da2940c9c42cc0df5e83104a11712d78e4a431d42d0b933dc8159259545e24018dafeb2402d57e39a4797a98795b985224dcaf3599ab90222f2b12c3e70378795a422a7011e03a284695084eee849f4e217724b884e0f318f296d116842ee5189b54590870d388b867481bb30446bab709f725f1cdc287f6b4367a5b2362e859e9a0e57188fbe9110fb42c62c360b173ddcd63de733fc7cf0820c1b857113570710fd7c3492b1daf1207b2c4bc1c0e9c2f9d7482346de38d5ab4c2f4140f9bf8a046e561ef0c931f0818ee2cb9d6789ae2fd17ceebd072d72100a901943d7ceaa5422df02f3362d1124ae52a975395aca8318a23dac8681c2e08</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。</p>
+<a id="more"></a>
+
+<h2 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h2><p>源码：</p>
+<div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708164747.png" </div>
+
+<p>通过分析可知，上传校验是在前端js做的，因此可以：</p>
+<p>1、禁用js上传</p>
+<p>谷歌浏览器打开，F12然后F1，拉到Debugger区域。</p>
+<div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172129.png" </div>
+
+<p>2、bp截包修改后缀名上传</p>
+<div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172441.png" </div>
+
+<p>执行成功：</p>
+<div align=left><img src="https://cdn.jsdelivr.net/gh/charseki1994/images/img/20210708172754.png" </div>
+
+
       
     </div>
 
@@ -368,7 +393,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Encrypted/" rel="tag"><i class="fa fa-tags"></i> Encrypted</a>
+              <a href="/tags/upload-bypass/" rel="tag"><i class="fa fa-tags"></i> upload bypass</a>
           </div>
 
         
@@ -376,11 +401,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/07/08/upload-labs%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/" rel="next" title="upload-labs 通关打卡">
-      upload-labs 通关打卡 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/11/29/Encrypt_Demo/" rel="prev" title="Encrypt_Demo">
+      <i class="fa fa-chevron-left"></i> Encrypt_Demo
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -440,6 +465,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">背景介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-01"><span class="nav-number">1.1.</span> <span class="nav-text">Pass-01</span></a></li></ol></li></ol></div>
       </div>
 
       <!--/noindex-->
